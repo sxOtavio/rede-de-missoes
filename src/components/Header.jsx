@@ -1,27 +1,36 @@
 "use client";
 
+const menuItems = [
+  'Home',
+  'Quem somos',
+  'Ministérios',
+  'Projetos',
+  'Doações',
+  'Contato',
+  'Notícias',
+];
+
 export default function Header() {
   return (
-    <header className="w-full h-30 bg-blue-600 text-white" style={{ padding: '0 2rem' }}>
-      <div className="flex w-full h-full items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center gap-3">
-          <img src="/logo.png" alt="logo" className="h-30 w-auto" />
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight">
+    <header className="w-full bg-blue-600 text-white">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-3 px-4 py-3 md:flex-row md:justify-between md:gap-0 md:px-6 md:py-0 lg:px-8">
+        <div className="flex items-center justify-center gap-3 md:justify-start">
+          <img src="/logo.png" alt="logo" className="h-14 w-auto sm:h-16 md:h-20 lg:h-24" />
+          <h1 className="text-2xl font-black tracking-tight sm:text-3xl lg:text-4xl">
             Rede de Missões
           </h1>
         </div>
 
-        {/* Menu */}
-        <nav>
-          <ul className="flex gap-10 text-lg md:text-xl lg:text-2xl font-bold tracking-wide">
-            <li className="cursor-pointer hover:text-blue-200 transition-colors">Home</li>
-            <li className="cursor-pointer hover:text-blue-200 transition-colors">Quem somos</li>
-            <li className="cursor-pointer hover:text-blue-200 transition-colors">Ministérios</li>
-            <li className="cursor-pointer hover:text-blue-200 transition-colors">Projetos</li>
-            <li className="cursor-pointer hover:text-blue-200 transition-colors">Doações</li>
-            <li className="cursor-pointer hover:text-blue-200 transition-colors">Contato</li>
-            <li className="cursor-pointer hover:text-blue-200 transition-colors">Notícias</li>
+        <nav className="w-full overflow-x-auto md:w-auto">
+          <ul className="flex min-w-max items-center justify-center gap-3 text-sm font-bold tracking-wide sm:gap-4 sm:text-base md:gap-5 md:text-lg lg:gap-8 lg:text-xl">
+            {menuItems.map((item) => (
+              <li
+                key={item}
+                className="cursor-pointer whitespace-nowrap text-white/90 transition-colors hover:text-blue-200"
+              >
+                {item}
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
