@@ -41,7 +41,7 @@ export const projetos = [
     descricao: 'Nosso ministério de louvor atua em todas as igrejas da rede, com músicos e cantores talentosos dedicados à adoração.',
     imagem: '/images/heroCreche.jpg',
     imagemCard: '/images/heroDoacao.jpg',
-    botao: 'Conheça o Ministério',
+    botao: 'Conheça a creche',
     link: '/ministerios/louvor',
     noHero: true // ✅ Aparece no Hero
   },

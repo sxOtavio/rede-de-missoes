@@ -17,14 +17,14 @@ export default function MainContent() {
       </div>
 
       {/* Grid de Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projetos.map((projeto) => (
           <Card key={projeto.id} projeto={projeto} />
         ))}
       </div>
 
       {/* Chamada para ação */}
-      <div className="text-center mt-16 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8">
+      <div className="text-center mt-16 to-purple-50 rounded-2xl p-8">
         <h2 className="text-2xl font-bold text-gray-800 mb-2">
           Quer ajudar?
         </h2>

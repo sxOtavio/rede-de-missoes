@@ -44,7 +44,7 @@ export default function Hero() {
                 className="w-full h-full bg-cover bg-center"
                 style={{ backgroundImage: `url(${projeto.imagem})` }}
               >
-                <div className="absolute inset-0 bg-black/50"></div>
+                <div className="absolute inset-0 bg-black/60"></div>
               </div>
 
               {/* Texto sobreposto */}

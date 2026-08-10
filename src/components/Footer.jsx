@@ -10,9 +10,13 @@ export default function Footer() {
           <h2>Email: contato@rede-de-missoes.com</h2>
         </div>
 
-        <div className="text-center text-base font-semibold">logo das redes sociais</div>
+        <div className="text-center text-base font-semibold">
+          logo das redes sociais
+        </div>
 
-        <div className="text-center md:text-right">política de privacidade · notícias</div>
+        <div className="text-center md:text-right">
+          política de privacidade · notícias
+        </div>
       </div>
     </footer>
   );

@@ -19,29 +19,24 @@
   }
 }
 
-/* ADICIONE ISSO */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Estilos globais usando a camada @utility ou aplicando direto no body */
+@layer base {
+  html, body {
+    min-height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    background: var(--background);
+    color: var(--foreground);
+    /* Se estiver usando Next.js com Geist font, remova a linha abaixo para não sobrescrever */
+    font-family: Arial, Helvetica, sans-serif; 
+  }
 
-html, body {
-  min-height: 100%;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+  img {
+    max-width: 100%;
+    display: block;
+  }
 
-img {
-  max-width: 100%;
-  display: block;
-}
-
-a {
-  text-decoration: none;
+  a {
+    text-decoration: none;
+  }
 }
