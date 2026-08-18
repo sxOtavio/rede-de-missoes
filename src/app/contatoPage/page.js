@@ -26,7 +26,6 @@ export default function Contato() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aqui você pode integrar com um serviço de email (Ex: EmailJS, Nodemailer, etc)
     console.log("Dados do formulário:", formData);
     setEnviado(true);
     setTimeout(() => setEnviado(false), 5000);
@@ -36,15 +35,15 @@ export default function Contato() {
     <>
       <Header />
       
-      <main className="min-h-screen py-12 md:py-16 bg-gray-50">
+      <main className="min-h-screen py-12 md:py-16 bg-[#f8f7f3]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Título */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-black text-blue-900">
+            <h1 className="text-4xl md:text-5xl font-black text-gray-800">
               Fale Conosco
             </h1>
-            <div className="w-24 h-1 bg-blue-600 mx-auto mt-4 rounded-full"></div>
+            <div className="w-24 h-1 bg-[#E07B39] mx-auto mt-4 rounded-full"></div>
             <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
               Entre em contato conosco. Estamos aqui para ouvir você!
             </p>
@@ -55,7 +54,7 @@ export default function Contato() {
             
             {/* Formulário */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+              <div className="bg-white rounded-2xl shadow-md p-6 md:p-8 hover:shadow-lg transition-shadow">
                 <h2 className="text-2xl font-bold text-gray-800 mb-6">
                   Envie uma mensagem
                 </h2>
@@ -79,7 +78,7 @@ export default function Contato() {
                           placeholder="Seu nome"
                           value={formData.nome}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none transition"
                         />
                       </div>
                       <div>
@@ -93,7 +92,7 @@ export default function Contato() {
                           placeholder="seu@email.com"
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none transition"
                         />
                       </div>
                     </div>
@@ -109,7 +108,7 @@ export default function Contato() {
                           placeholder="(00) 00000-0000"
                           value={formData.telefone}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none transition"
                         />
                       </div>
                       <div>
@@ -121,7 +120,7 @@ export default function Contato() {
                           required
                           value={formData.assunto}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-white"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none transition bg-white"
                         >
                           <option value="">Selecione um assunto</option>
                           <option value="duvida">Dúvida</option>
@@ -145,13 +144,13 @@ export default function Contato() {
                         placeholder="Escreva sua mensagem..."
                         value={formData.mensagem}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition resize-none"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none transition resize-none"
                       />
                     </div>
 
                     <button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 rounded-lg text-lg transition-all shadow-lg hover:shadow-xl"
+                      className="w-full bg-[#E07B39] hover:bg-[#c96a2e] text-white font-bold py-3 rounded-lg text-lg transition-colors shadow-md hover:shadow-lg"
                     >
                       Enviar mensagem →
                     </button>
@@ -162,7 +161,7 @@ export default function Contato() {
 
             {/* Informações de Contato */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 space-y-6">
+              <div className="bg-white rounded-2xl shadow-md p-6 md:p-8 space-y-6 hover:shadow-lg transition-shadow">
                 <h2 className="text-2xl font-bold text-gray-800">
                   Informações
                 </h2>
@@ -182,7 +181,7 @@ export default function Contato() {
                     <span className="text-2xl">📧</span>
                     <div>
                       <h3 className="font-bold text-gray-700">Email</h3>
-                      <a href="mailto:contato@redeadan.com.br" className="text-blue-600 hover:text-blue-800 text-sm">
+                      <a href="mailto:contato@redeadan.com.br" className="text-[#E07B39] hover:text-[#c96a2e] text-sm transition-colors">
                         contato@redeadan.com.br
                       </a>
                     </div>
@@ -192,7 +191,7 @@ export default function Contato() {
                     <span className="text-2xl">📱</span>
                     <div>
                       <h3 className="font-bold text-gray-700">WhatsApp</h3>
-                      <a href="https://wa.me/5561999999999" className="text-blue-600 hover:text-blue-800 text-sm">
+                      <a href="https://wa.me/5561999999999" className="text-[#E07B39] hover:text-[#c96a2e] text-sm transition-colors">
                         (61) 99999-9999
                       </a>
                     </div>
@@ -214,22 +213,22 @@ export default function Contato() {
                 <div>
                   <h3 className="font-bold text-gray-700 mb-3">Redes Sociais</h3>
                   <div className="flex gap-3">
-                    <a href="#" className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                    <a href="#" className="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-[#E07B39] transition-colors">
                       <span>📘</span>
                     </a>
-                    <a href="#" className="w-10 h-10 bg-blue-400 text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors">
+                    <a href="#" className="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-[#E07B39] transition-colors">
                       <span>🐦</span>
                     </a>
-                    <a href="#" className="w-10 h-10 bg-pink-600 text-white rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors">
+                    <a href="#" className="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-[#E07B39] transition-colors">
                       <span>📸</span>
                     </a>
-                    <a href="#" className="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center hover:bg-green-700 transition-colors">
+                    <a href="#" className="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-[#E07B39] transition-colors">
                       <span>💬</span>
                     </a>
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-4 text-center">
+                <div className="bg-[#fef0e8] rounded-xl p-4 text-center">
                   <p className="text-sm text-gray-700">
                     🙏 <strong>Ore por nós</strong>
                   </p>
@@ -242,7 +241,7 @@ export default function Contato() {
           </div>
 
           {/* Mapa (opcional) */}
-          <div className="mt-12 bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div className="mt-12 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
             <div className="h-64 bg-gray-200 flex items-center justify-center">
               <p className="text-gray-500">
                 📍 Mapa - Brasília, DF

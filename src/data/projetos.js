@@ -64,7 +64,7 @@ export const projetos = [
     imagem: '/images/heroParceiro.png',
     imagemCard: '/images/heroParceiro.png',
     botao: 'Doe Agora',
-    link: '/doacoes',
+    link: '/doacoesPage',
     noHero: false 
   }
   

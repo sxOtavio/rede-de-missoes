@@ -12,8 +12,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Rede de Missões ADAN",
-  description: "Rede de Missões da Igreja Adventista do Sétimo Dia ",
+  title: "Projeto PURIM - Rede de Missões da Igreja Adventista do Sétimo Dia",
+  description: "Projeto PURIM ",
 };
 
 export default function RootLayout({ children }) {

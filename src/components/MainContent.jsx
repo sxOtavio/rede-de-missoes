@@ -4,14 +4,14 @@ import { projetos } from '@/data/projetos';
 
 export default function MainContent() {
   return (
-    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <main className="max-w-7xl bg-[#F3F4F8] mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Cabeçalho */}
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-          Rede Missões <span className="text-blue-600">ADAN</span>
+          Projeto <span className="text-purple-600">P</span><span className="text-blue-600">U</span><span className="text-green-600">R</span><span className="text-yellow-600">I</span><span className="text-red-600">M</span>
         </h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Transformando vidas em Brasília e para o mundo 🌎
+          Transformando vidas em Brasília e mudando o mundo 🌎
         </p>
         <div className="w-24 h-1 mx-auto mt-4 rounded-full" />
       </div>

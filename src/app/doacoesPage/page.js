@@ -16,27 +16,27 @@ export default function Doacoes() {
     <>
       <Header />
       
-      <main className="min-h-screen py-12 md:py-16 bg-gray-50">
+      <main className="min-h-screen py-12 md:py-16 bg-[#f8f7f3]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Título */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-black text-blue-900">
+            <h1 className="text-4xl md:text-5xl font-black text-gray-800">
               Faça uma Doação
             </h1>
-            <div className="w-24 h-1 bg-blue-600 mx-auto mt-4 rounded-full"></div>
+            <div className="w-24 h-1 bg-[#E07B39] mx-auto mt-4 rounded-full"></div>
             <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
               Sua contribuição transforma vidas e leva esperança a quem mais precisa
             </p>
           </div>
 
           {/* Card Principal */}
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-8 text-white">
+          <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-shadow hover:shadow-xl">
+            <div className="bg-gray-800 px-6 py-8 text-white">
               <h2 className="text-2xl font-bold text-center">
                 🙏 Doe e faça a diferença
               </h2>
-              <p className="text-blue-100 text-center mt-2">
+              <p className="text-gray-300 text-center mt-2">
                 Sua doação ajuda a manter nossos projetos
               </p>
             </div>
@@ -54,7 +54,7 @@ export default function Doacoes() {
                       onClick={() => setValor(v)}
                       className={`px-6 py-3 rounded-lg font-bold text-sm transition-all ${
                         valor === v
-                          ? "bg-blue-600 text-white shadow-lg"
+                          ? "bg-[#E07B39] text-white shadow-lg"
                           : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                       }`}
                     >
@@ -65,7 +65,7 @@ export default function Doacoes() {
                     onClick={() => setValor(0)}
                     className={`px-6 py-3 rounded-lg font-bold text-sm transition-all ${
                       valor === 0
-                        ? "bg-blue-600 text-white shadow-lg"
+                        ? "bg-[#E07B39] text-white shadow-lg"
                         : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                     }`}
                   >
@@ -87,7 +87,7 @@ export default function Doacoes() {
                     <input
                       type="number"
                       placeholder="Digite o valor"
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none"
                       min="1"
                       onChange={(e) => setValor(Number(e.target.value))}
                     />
@@ -105,7 +105,7 @@ export default function Doacoes() {
                     onClick={() => setFormaPagamento("pix")}
                     className={`p-4 rounded-lg border-2 transition-all ${
                       formaPagamento === "pix"
-                        ? "border-blue-600 bg-blue-50"
+                        ? "border-[#E07B39] bg-[#fef0e8]"
                         : "border-gray-200 hover:border-gray-300"
                     }`}
                   >
@@ -116,7 +116,7 @@ export default function Doacoes() {
                     onClick={() => setFormaPagamento("cartao")}
                     className={`p-4 rounded-lg border-2 transition-all ${
                       formaPagamento === "cartao"
-                        ? "border-blue-600 bg-blue-50"
+                        ? "border-[#E07B39] bg-[#fef0e8]"
                         : "border-gray-200 hover:border-gray-300"
                     }`}
                   >
@@ -127,7 +127,7 @@ export default function Doacoes() {
                     onClick={() => setFormaPagamento("boleto")}
                     className={`p-4 rounded-lg border-2 transition-all ${
                       formaPagamento === "boleto"
-                        ? "border-blue-600 bg-blue-50"
+                        ? "border-[#E07B39] bg-[#fef0e8]"
                         : "border-gray-200 hover:border-gray-300"
                     }`}
                   >
@@ -146,7 +146,7 @@ export default function Doacoes() {
                   <input
                     type="text"
                     placeholder="Seu nome"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none"
                   />
                 </div>
                 <div>
@@ -156,7 +156,7 @@ export default function Doacoes() {
                   <input
                     type="email"
                     placeholder="seu@email.com"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none"
                   />
                 </div>
               </div>
@@ -166,7 +166,7 @@ export default function Doacoes() {
                 <input
                   type="checkbox"
                   id="recorrente"
-                  className="w-5 h-5 text-blue-600 rounded focus:ring-blue-500"
+                  className="w-5 h-5 text-[#E07B39] rounded focus:ring-[#E07B39]"
                 />
                 <label htmlFor="recorrente" className="text-gray-700">
                   Tornar minha doação <strong>recorrente</strong> (mensal)
@@ -174,7 +174,7 @@ export default function Doacoes() {
               </div>
 
               {/* Botão Final */}
-              <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 rounded-lg text-lg transition-all shadow-lg hover:shadow-xl">
+              <button className="w-full bg-[#E07B39] hover:bg-[#c96a2e] text-white font-bold py-4 rounded-lg text-lg transition-colors shadow-lg hover:shadow-xl">
                 Doar R$ {valor > 0 ? valor.toFixed(2) : "..."}
               </button>
             </div>
@@ -182,34 +182,34 @@ export default function Doacoes() {
 
           {/* Impacto */}
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-2xl shadow-lg text-center">
-              <p className="text-3xl font-black text-blue-600">R$ 25</p>
+            <div className="bg-white p-6 rounded-2xl shadow-md text-center hover:shadow-lg transition-shadow">
+              <p className="text-3xl font-black text-[#E07B39]">R$ 25</p>
               <p className="text-sm text-gray-600 mt-2">Alimenta uma criança por 1 mês</p>
             </div>
-            <div className="bg-white p-6 rounded-2xl shadow-lg text-center">
-              <p className="text-3xl font-black text-blue-600">R$ 50</p>
+            <div className="bg-white p-6 rounded-2xl shadow-md text-center hover:shadow-lg transition-shadow">
+              <p className="text-3xl font-black text-[#E07B39]">R$ 50</p>
               <p className="text-sm text-gray-600 mt-2">Mantém 1 aluno na escola</p>
             </div>
-            <div className="bg-white p-6 rounded-2xl shadow-lg text-center">
-              <p className="text-3xl font-black text-blue-600">R$ 100</p>
+            <div className="bg-white p-6 rounded-2xl shadow-md text-center hover:shadow-lg transition-shadow">
+              <p className="text-3xl font-black text-[#E07B39]">R$ 100</p>
               <p className="text-sm text-gray-600 mt-2">Apoia um missionário por mês</p>
             </div>
           </div>
 
-          {/* Chave PIX (se for igreja) */}
-          <div className="mt-12 bg-white rounded-2xl shadow-lg p-6 text-center">
+          {/* Chave PIX */}
+          <div className="mt-12 bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-lg transition-shadow">
             <h3 className="text-lg font-bold text-gray-800 mb-2">
               📱 Doe via PIX
             </h3>
             <p className="text-gray-600 mb-2">Chave PIX:</p>
-            <div className="bg-gray-100 rounded-lg p-4 inline-block">
-              <code className="text-sm font-mono text-blue-600 break-all">
+            <div className="bg-[#f8f7f3] rounded-lg p-4 inline-block">
+              <code className="text-sm font-mono text-[#E07B39] break-all">
                 contato@redeadan.com.br
               </code>
             </div>
             <button
               onClick={() => navigator.clipboard.writeText("contato@redeadan.com.br")}
-              className="block mx-auto mt-3 text-sm text-blue-600 hover:text-blue-800 font-medium"
+              className="block mx-auto mt-3 text-sm text-[#E07B39] hover:text-[#c96a2e] font-medium"
             >
               📋 Copiar chave PIX
             </button>
