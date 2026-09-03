@@ -1,8 +1,27 @@
 // components/MainContent.jsx
 import Card from './Card';
-import { projetos } from '@/data/projetos';
-
+import { useEffect } from 'react';
+import { useNoticias } from '@/hooks/useNoticias';
 export default function MainContent() {
+
+    const { noticiasData, loadNoticiasData } = useNoticias(); 
+    //---- Faz uma fetch no banco para ver os noticias existentes -------
+    useEffect(() => {
+      loadNoticiasData();
+    }, [loadNoticiasData]);
+    console.log("Dados do Noticias:", noticiasData);
+
+  const noticiasEmDestaque = noticiasData
+    .filter((noticia) => noticia.destaque === true && noticia.ativo !== false)
+    .map((noticia) => ({
+      id: noticia.id,
+      nome: noticia.titulo,
+      titulo: noticia.titulo,
+      descricao: noticia.resumo || noticia.conteudo,
+      imagem: noticia.imagem_url || '/images/heroProjetosSociais.png',
+      link: noticia.slug ? `/noticias/${noticia.slug}` : `/noticias/${noticia.id}`,
+    }));
+
   return (
     <main className="max-w-7xl bg-[#F3F4F8] mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Cabeçalho */}
@@ -15,11 +34,11 @@ export default function MainContent() {
         </p>
         <div className="w-24 h-1 mx-auto mt-4 rounded-full" />
       </div>
-
+      <h2 className="text-3xl font-bold text-black mb-8 text-center">Notícias em destaque</h2>
       {/* Grid de Cards */}
       <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projetos.map((projeto) => (
-          <Card key={projeto.id} projeto={projeto} />
+        {noticiasEmDestaque.map((noticia) => (
+          <Card key={noticia.id} projeto={noticia} />
         ))}
       </div>
 

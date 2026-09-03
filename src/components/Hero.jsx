@@ -6,12 +6,29 @@ import { projetos } from '@/data/projetos';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
+import { useEffect } from 'react';
+import { useHero } from '@/hooks/useHero';
 export default function Hero() {
-  // Filtra apenas os projetos que:
-  // 1. Têm noHero = true
-  // 2. Têm imagem
-  const slidesHero = projetos.filter(projeto => projeto.noHero === true && projeto.imagem);
+
+  const { heroData, loadHeroData } = useHero(); 
+  //---- Faz uma fetch no banco para ver os heros existentes -------
+  useEffect(() => {
+    loadHeroData();
+  }, [loadHeroData]);
+  console.log("Dados do Hero:", heroData);
+
+  const slidesHero = (heroData.length > 0
+    ? heroData.map((hero) => ({
+        id: hero.id,
+        titulo: hero.title,
+        subtitulo: hero.subtitle,
+        descricao: hero.description_text,
+        imagem: hero.image_url,
+        botao: hero.button_text,
+        link: hero.button_link,
+      }))
+    : projetos.filter((projeto) => projeto.noHero === true)
+  ).filter((slide) => slide.imagem);
 
   // Se não tiver nenhum slide, não mostra o carrossel
   if (slidesHero.length === 0) {

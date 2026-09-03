@@ -14,7 +14,7 @@ export const projetos = [
   },
   {
     id: 2,
-    titulo: 'Escola Tempo de Alegria',
+    titulo: 'Instituto Tempo de Alegria',
     subtitulo: 'Educação que transforma vidas',
     descricao: 'Atendemos mais de 200 crianças em situação de vulnerabilidade social com educação de qualidade, alimentação e assistência espiritual.',
     imagem: '/images/heroEscola.jpg',
