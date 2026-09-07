@@ -7,12 +7,14 @@ export default function Card({ projeto }) {
     <div className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
       {/* Imagem */}
       <div className="relative h-48 w-full">
-        <Image
-          src={projeto.imagem}
-          alt={projeto.nome}
-          fill
-          className="object-cover"
-        />
+          <img
+            src={projeto.imagem}
+            alt={projeto.nome}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.target.src = '/images/placeholder.jpg'; // Fallback
+            }}
+          />
       </div>
       
       {/* Conteúdo */}
