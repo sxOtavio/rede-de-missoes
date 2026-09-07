@@ -1,37 +1,39 @@
 "use client";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import { projetos } from '@/data/projetos';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { useEffect } from 'react';
-import { useHero } from '@/hooks/useHero';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { projetos } from "@/data/projetos";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { useEffect, useState } from "react";
+import { useHero } from "@/hooks/useHero";
 export default function Hero() {
-
-  const { heroData, loadHeroData } = useHero(); 
+  const { heroData, loadHeroData } = useHero();
+  const [mounted, setMounted] = useState(false);
   //---- Faz uma fetch no banco para ver os heros existentes -------
   useEffect(() => {
+    setMounted(true);
     loadHeroData();
   }, [loadHeroData]);
   console.log("Dados do Hero:", heroData);
 
-  const slidesHero = (heroData.length > 0
-    ? heroData.map((hero) => ({
-        id: hero.id,
-        titulo: hero.title,
-        subtitulo: hero.subtitle,
-        descricao: hero.description_text,
-        imagem: hero.image_url,
-        botao: hero.button_text,
-        link: hero.button_link,
-      }))
-    : projetos.filter((projeto) => projeto.noHero === true)
+  const slidesHero = (
+    heroData.length > 0
+      ? heroData.map((hero) => ({
+          id: hero.id,
+          titulo: hero.title,
+          subtitulo: hero.subtitle,
+          descricao: hero.description_text,
+          imagem: hero.image_url,
+          botao: hero.button_text,
+          link: hero.button_link,
+        }))
+      : projetos.filter((projeto) => projeto.noHero === true)
   ).filter((slide) => slide.imagem);
 
   // Se não tiver nenhum slide, não mostra o carrossel
-  if (slidesHero.length === 0) {
+  if (!mounted || slidesHero.length === 0) {
     return null;
   }
 
@@ -47,8 +49,8 @@ export default function Hero() {
         }}
         pagination={{
           clickable: true,
-          bulletClass: 'swiper-pagination-bullet !bg-white !opacity-70',
-          bulletActiveClass: '!bg-white !opacity-100',
+          bulletClass: "swiper-pagination-bullet !bg-white !opacity-70",
+          bulletActiveClass: "!bg-white !opacity-100",
         }}
         navigation={true}
         className="w-full h-full"
@@ -57,7 +59,7 @@ export default function Hero() {
           <SwiperSlide key={projeto.id}>
             <div className="relative w-full h-full">
               {/* Imagem de fundo */}
-              <div 
+              <div
                 className="w-full h-full bg-cover bg-center"
                 style={{ backgroundImage: `url(${projeto.imagem})` }}
               >
@@ -65,7 +67,10 @@ export default function Hero() {
               </div>
 
               {/* Texto sobreposto */}
-              <div className="absolute inset-0 flex items-center" style={{ padding: '0 2rem' }}>
+              <div
+                className="absolute inset-0 flex items-center"
+                style={{ padding: "0 2rem" }}
+              >
                 <div className="max-w-2xl text-white">
                   <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight">
                     {projeto.titulo}
@@ -76,10 +81,11 @@ export default function Hero() {
                   <p className="mt-2 text-base md:text-lg text-gray-300">
                     {projeto.descricao}
                   </p>
-                  <a href={projeto.link}>
-                    <button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-                      {projeto.botao}
-                    </button>
+                  <a
+                    href={projeto.link}
+                    className="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                  >
+                    {projeto.botao}
                   </a>
                 </div>
               </div>
@@ -92,13 +98,13 @@ export default function Hero() {
         :global(.swiper-button-next),
         :global(.swiper-button-prev) {
           color: white !important;
-          background: rgba(0,0,0,0.3);
+          background: rgba(0, 0, 0, 0.3);
           padding: 30px 20px;
           border-radius: 8px;
         }
         :global(.swiper-button-next:hover),
         :global(.swiper-button-prev:hover) {
-          background: rgba(0,0,0,0.5);
+          background: rgba(0, 0, 0, 0.5);
         }
       `}</style>
     </div>

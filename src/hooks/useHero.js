@@ -1,32 +1,79 @@
-import {useCallback, useState} from 'react';
-import { fetchHeroData } from '@/services/HeroServices';
+// hooks/useHero.js
+import { useState, useCallback } from "react";
 
+export function useHero() {
+  const [heroData, setHeroData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-export function useHero(){
- const [heroData, setHeroData] = useState([]);
-   
+  // Carrega todos os heróis do banco
+  const loadHeroData = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await fetch("/api/hero");
+      const result = await response.json();
 
-    const loadHeroData =useCallback( async () => {
-     console.log("Carregando dados do hero ...");
-        try{
-        const heroData = await fetchHeroData();
-        setHeroData(heroData);
-        }
-        catch(error){
-            console.error("Erro ao carregar dados do hero:", error);
-        }
-    },[]);
+      if (!response.ok) {
+        throw new Error(result.error || "Erro ao carregar os heros");
+      }
 
-
-        return{
-        // States importados
-         heroData,
-
-       
-
-        //Hooks exportados
-        loadHeroData
-      
+      setHeroData(Array.isArray(result) ? result : result.data || []);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
+  }, []);
 
-};
+  // Atualiza um slide específico
+  const updateHero = useCallback(
+    async (id, dados) => {
+      try {
+        const response = await fetch(`/api/hero/${id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(dados),
+        });
+        const result = await response.json();
+        if (result.success) {
+          await loadHeroData(); // Recarrega
+        }
+        return result;
+      } catch (err) {
+        setError(err.message);
+      }
+    },
+    [loadHeroData],
+  );
+
+  // Define qual slide está ativo
+  const setActiveHero = useCallback(
+    async (id) => {
+      try {
+        const response = await fetch(`/api/hero/active`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id }),
+        });
+        const result = await response.json();
+        if (result.success) {
+          await loadHeroData(); // Recarrega
+        }
+        return result;
+      } catch (err) {
+        setError(err.message);
+      }
+    },
+    [loadHeroData],
+  );
+
+  return {
+    heroData,
+    loading,
+    error,
+    loadHeroData,
+    updateHero,
+    setActiveHero,
+  };
+}

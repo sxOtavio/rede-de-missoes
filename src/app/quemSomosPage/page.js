@@ -12,55 +12,107 @@ export default function QuemSomos() {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
-        {/* Título */}
+        {/* Título Principal */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-black text-gray-800">
             Quem Somos
           </h1>
           <div className="w-24 h-1 bg-[#E07B39] mx-auto mt-4 rounded-full"></div>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Conheça a história do Projeto Purim e da Rede Missões ADAN
+            Conheça o Instituto Templo da Alegria, o Projeto Purim e as frentes de atuação que transformam vidas em Brasília e no mundo.
           </p>
         </div>
 
-        {/* Grid principal */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative h-80 md:h-96 rounded-2xl overflow-hidden shadow-xl">
-            <Image
-              src="/images/sobre.jpg"
-              alt="Projeto Purim e Rede Missões ADAN"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <div className="absolute bottom-6 left-6 text-white">
-              <p className="text-sm font-bold">Rede Missões ADAN | Projeto Purim</p>
-            </div>
+        {/* ============================================================ */}
+        {/* SEÇÃO 1: INSTITUTO TEMPLO DA ALEGRIA */}
+        {/* ============================================================ */}
+        <div className="max-w-4xl mx-auto mb-16">
+          
+          {/* Título da Seção */}
+          <div className="mb-6">
+            <h2 className="text-3xl font-bold text-gray-800 border-l-4 border-[#E07B39] pl-4">
+              Instituto Templo da Alegria (ITA)
+            </h2>
           </div>
 
-          <div>
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Nossa História
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              O <strong>Projeto Purim</strong> é uma das frentes de atuação da <strong>Rede de Missões ADAN</strong>, que nasceu do chamado para levar esperança, alimento e espiritualidade a crianças e pessoas em situação de vulnerabilidade social.
+          {/* Texto do ITA */}
+          <div className="mb-4">
+            <p className="text-lg leading-relaxed text-gray-700">
+              O <strong className="text-[#E07B39]">Instituto Templo da Alegria (ITA)</strong> é uma organização social e missionária que atua em Brasília e em frentes internacionais, levando esperança, acolhimento e desenvolvimento a comunidades em situação de vulnerabilidade.
             </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              Nossa missão é levar <strong>amor, acolhimento e a mensagem de fé</strong> a quem mais precisa, através de ações que envolvem doação de alimentos, apoio espiritual e assistência social. Acreditamos que cada gesto de solidariedade transforma vidas.
+          </div>
+          <div className="mb-4">
+            <p className="text-lg leading-relaxed text-gray-700">
+              Nossa missão é devolver dignidade e esperança a cada pessoa, acreditando que o amor de Deus se faz presente através de ações concretas de solidariedade. O ITA é o guarda-chuva que abriga diversos projetos transformadores.
             </p>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              Trabalhamos para devolver a dignidade e a esperança a pessoas marginalizadas pela sociedade, construindo uma rede de apoio que acolhe, fortalece e reintegra cada pessoa à comunidade.
+          </div>
+          <div className="mb-4">
+            <p className="text-lg leading-relaxed text-gray-700">
+              O ITA acredita que a transformação social acontece quando fé e ação caminham juntas. Por isso, atuamos em diferentes frentes para alcançar crianças, jovens, adultos e famílias inteiras.
             </p>
-            <Link
-              href="/projetosPage"
-              className="inline-block px-6 py-3 bg-[#E07B39] hover:bg-[#c96a2e] text-white font-bold rounded-lg transition-colors shadow-md hover:shadow-lg"
-            >
-              Saiba Mais →
-            </Link>
+          </div>
+
+          {/* Frentes de atuação do ITA */}
+          <div className="mt-6">
+            <h3 className="text-xl font-bold text-gray-800 mb-4">Frentes de atuação:</h3>
+            <ul className="space-y-3 ml-6">
+              <li className="text-lg leading-relaxed text-gray-700 flex items-start gap-3">
+                <span className="text-[#E07B39] text-xl">✦</span>
+                <span><strong className="text-gray-800">ITA Estrutural</strong> — sede em Brasília com projetos sociais</span>
+              </li>
+              <li className="text-lg leading-relaxed text-gray-700 flex items-start gap-3">
+                <span className="text-[#E07B39] text-xl">✦</span>
+                <span><strong className="text-gray-800">ITA África</strong> — frente missionária internacional</span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Valores */}
+        {/* ============================================================ */}
+        {/* SEÇÃO 2: PROJETO PURIM */}
+        {/* ============================================================ */}
+        <div className="max-w-4xl mx-auto mb-16">
+          
+          {/* Título da Seção */}
+          <div className="mb-6">
+            <h2 className="text-3xl font-bold text-gray-800 border-l-4 border-[#E07B39] pl-4">
+              Projeto Purim
+            </h2>
+          </div>
+
+          {/* Texto do Purim */}
+          <div className="mb-4">
+            <p className="text-lg leading-relaxed text-gray-700">
+              O <strong className="text-[#E07B39]">Projeto Purim</strong> nasceu durante a pandemia, com a intenção de ajudar famílias em situação de vulnerabilidade. 
+              O que começou como uma ação emergencial se tornou um trabalho contínuo, que hoje é referência em acolhimento e solidariedade.
+            </p>
+          </div>
+          <div className="mb-4">
+            <p className="text-lg leading-relaxed text-gray-700">
+              O Purim atua fornecendo <strong>alimentos, roupas e ovos</strong> a famílias carentes, além de oferecer acolhimento e apoio espiritual. 
+              É um projeto que devolve dignidade e esperança a quem mais precisa.
+            </p>
+          </div>
+
+          {/* Responsáveis */}
+          <div className="mt-6 p-6 bg-white rounded-2xl shadow-md border-l-4 border-[#E07B39]">
+            <h3 className="text-xl font-bold text-gray-800 mb-3">Responsáveis</h3>
+            <ul className="space-y-2 text-gray-700">
+              <li className="flex items-center gap-2">
+                <span className="text-[#E07B39]">●</span>
+                <span><strong>Coordenação Geral:</strong> Reinaldo Bastos</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-[#E07B39]">●</span>
+                <span><strong>Líderes:</strong> Breno, Márcia e Flávio</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* ============================================================ */}
+        {/* SEÇÃO 3: VALORES */}
+        {/* ============================================================ */}
         <div className="mt-20">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
             Nossos Valores
@@ -99,7 +151,9 @@ export default function QuemSomos() {
           </div>
         </div>
 
-        {/* Números */}
+        {/* ============================================================ */}
+        {/* SEÇÃO 4: NÚMEROS */}
+        {/* ============================================================ */}
         <div className="mt-20 mb-8 bg-gray-800 rounded-2xl py-12 px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
             <div className="transition-all duration-300 hover:scale-110">

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const menuItems = [
   { nome: "Quem somos", href: "/quemSomosPage" },
-  { nome: "Projetos", href: "/projetosPage" },
+  { nome: "Projeto", href: "/projetoPage" },
   { nome: "Doações", href: "/doacoesPage" },
   { nome: "Contato", href: "/contatoPage" },
   { nome: "Notícias", href: "/noticiasPage" },
