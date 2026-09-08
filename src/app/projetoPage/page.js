@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Galeria from "@/components/galeria/Galeria";
 
 export default function Projetos() {
   return (
@@ -95,38 +96,7 @@ export default function Projetos() {
             </div>
           </div>
 
-          {/* ============================================================ */}
-          {/* SEÇÃO 3: GALERIA DE FOTOS */}
-          {/* ============================================================ */}
-          <div className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-              Galeria de Fotos
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {[1, 2, 3, 4, 5, 6].map((item) => (
-                <div
-                  key={item}
-                  className="relative aspect-square rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
-                >
-                  <Image
-                    src={`/images/purim-galeria-${item}.jpg`}
-                    alt={`Projeto Purim - Foto ${item}`}
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-              ))}
-              {/* Placeholder para fotos que ainda não chegaram */}
-              <div className="aspect-square rounded-xl overflow-hidden shadow-md bg-gray-200 flex items-center justify-center border-2 border-dashed border-gray-300">
-                <span className="text-gray-400 text-sm text-center px-2">
-                  + Fotos <br /> em breve
-                </span>
-              </div>
-            </div>
-            <p className="text-sm text-gray-400 text-center mt-4">
-              Fotos do acervo do Projeto Purim. Mais imagens em breve.
-            </p>
-          </div>
+          <Galeria/>
 
           {/* ============================================================ */}
           {/* SEÇÃO 4: COMO AJUDAR */}

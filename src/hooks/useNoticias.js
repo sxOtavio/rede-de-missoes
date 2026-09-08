@@ -1,32 +1,25 @@
-import {useCallback, useState} from 'react';
-import { fetchNoticiasData } from '@/services/NoticiasServices';
+import { useCallback, useState } from "react";
+import { fetchNoticiasData } from "@/services/NoticiasServices";
 
+export function useNoticias() {
+  const [noticiasData, setNoticiasData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-export function useNoticias(){
- const [noticiasData, setNoticiasData] = useState([]);
+  const loadNoticiasData = useCallback(async () => {
+    setLoading(true);
+    setError(null);
 
-
-    const loadNoticiasData =useCallback( async () => {
-     console.log("Carregando dados das noticias ...");
-        try{
-        const noticiasData = await fetchNoticiasData();
-        setNoticiasData(noticiasData);
-        }
-        catch(error){
-            console.error("Erro ao carregar dados das noticias:", error);
-        }
-    },[]);
-
-
-        return{
-        // States importados
-         noticiasData,
-
-       
-
-        //Hooks exportados
-        loadNoticiasData
-      
+    try {
+      const data = await fetchNoticiasData();
+      setNoticiasData(Array.isArray(data) ? data : data.data || []);
+    } catch (loadError) {
+      console.error("Erro ao carregar dados das noticias:", loadError);
+      setError(loadError.message);
+    } finally {
+      setLoading(false);
     }
+  }, []);
 
-};
+  return { noticiasData, loading, error, loadNoticiasData };
+}

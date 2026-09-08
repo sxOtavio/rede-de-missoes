@@ -1,4 +1,5 @@
 "use client";
+import { FaFacebook, FaInstagram, FaLinkedin, FaXTwitter, FaPhone } from 'react-icons/fa6';
 
 export default function Footer() {
   return (
@@ -10,12 +11,25 @@ export default function Footer() {
           <h2>Email: contato@rede-de-missoes.com</h2>
         </div>
 
-        <div className="text-center text-base font-semibold">
-          logo das redes sociais
-        </div>
+    <div className="flex gap-4">
+      <FaFacebook size={24} onClick={() => window.open('https://www.facebook.com', '_blank')} className="text-blue-600 hover:scale-140 transition-transform duration-300" />
+      <FaInstagram size={24} onClick={() => window.open('https://www.instagram.com', '_blank')} className="text-pink-600 hover:scale-140 transition-transform duration-300" />
+      <FaXTwitter size={24} onClick={() => window.open('https://www.twitter.com', '_blank')} className="text-white hover:scale-140 transition-transform duration-300" />
+      <FaPhone size={24} onClick={() => window.open('tel:+551112345678', '_blank')} className="text-white hover:scale-140 transition-transform duration-300" />
+    </div>
 
         <div className="text-center md:text-right">
-          política de privacidade · notícias
+         <a href="/politica-de-privacidade" className="text-white hover:text-gray-300">
+            Política de Privacidade
+          </a>
+          <a href="/termos" className="text-white p-4 hover:text-gray-300">
+            Termos de uso
+          </a>
+        </div>
+        <div className="text-center p-4 md:text-right">
+          <a href="/loginPage" className="text-white hover:text-gray-300">
+            Acesso do colaborador
+          </a>
         </div>
       </div>
     </footer>

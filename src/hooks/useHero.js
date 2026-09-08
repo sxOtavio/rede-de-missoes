@@ -5,8 +5,24 @@ export function useHero() {
   const [heroData, setHeroData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  //  Adciona banner ao banco
+ /* const addHero = useCallback(async (dados) => {
+      try {
+        const response = await fetch(`/api/hero/${id}`, {
 
-  // Carrega todos os heróis do banco
+        });
+        const result = await response.json();
+        if (result.success) {
+          await loadHeroData(); // Recarrega
+        }
+        return result;
+      } catch (err) {
+        setError(err.message);
+      }
+    },
+    [loadHeroData],
+  );*/
+  // Carrega todos os banners do banco
   const loadHeroData = useCallback(async () => {
     setLoading(true);
     setError(null);
@@ -31,9 +47,7 @@ export function useHero() {
     async (id, dados) => {
       try {
         const response = await fetch(`/api/hero/${id}`, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(dados),
+
         });
         const result = await response.json();
         if (result.success) {

@@ -59,8 +59,8 @@ export default function MainContent() {
           qualquer um dos nossos projetos.
         </p>
         <a
-          href="/como-ajudar"
-          className="inline-block px-8 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-colors"
+          href="/contatoPage"
+          className="inline-block px-8 py-3 bg-[#E07B39] hover:bg-[#c96a2e] text-white font-bold rounded-full transition-colors"
         >
           Como ajudar →
         </a>
@@ -68,3 +68,5 @@ export default function MainContent() {
     </main>
   );
 }
+
+

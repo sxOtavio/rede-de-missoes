@@ -10,12 +10,13 @@ import AdminProjetos from "@/components/admin/AdminProjetos";
 import AdminTabs from "@/components/admin/AdminTabs";
 
 const initialHero = {
-  titulo: "Instituto Templo da Alegria",
-  subtitulo: "Transformando vidas através da fé e da solidariedade",
+  titulo: "",
+  subtitulo: "",
   descricao:
-    "Acolhemos, restauramos e transformamos vidas em Brasília e no mundo.",
-  textoBotao: "Conheça Nossos Projetos",
-  imagem: "/images/hero-bg.jpg",
+    "",
+  textoBotao: "",
+  imagem: "",
+  button_link: "/noticiasPage",
 };
 
 const initialNoticias = [

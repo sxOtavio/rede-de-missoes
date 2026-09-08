@@ -1,4 +1,4 @@
-// Buscar todos os heros
+
 export async function fetchNoticiasData() {
   try {
     const response = await fetch("/api/noticias", {
