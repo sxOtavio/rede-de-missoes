@@ -10,6 +10,7 @@ export default function Card({ projeto }) {
           <img
             src={projeto.imagem}
             alt={projeto.nome}
+            loading="eager" 
             className="w-full h-full object-cover"
             onError={(e) => {
               e.target.src = '/images/placeholder.jpg'; // Fallback

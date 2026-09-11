@@ -1,40 +1,41 @@
 // hooks/useHero.js
 import { useState, useCallback } from "react";
+import { fetchHeroData, addHero } from "@/services/HeroServices";
 
 export function useHero() {
   const [heroData, setHeroData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  //  Adciona banner ao banco
- /* const addHero = useCallback(async (dados) => {
-      try {
-        const response = await fetch(`/api/hero/${id}`, {
 
-        });
-        const result = await response.json();
-        if (result.success) {
+
+  //  ================Adciona banner ao banco===================
+ 
+  const saveHero = useCallback(async (data) => {
+  console.log("HOOK- Função chamada useHero - saveHero", data);
+
+      try {
+        const response = await addHero(data);
+        if (response.success) {
           await loadHeroData(); // Recarrega
         }
-        return result;
+        return response;
       } catch (err) {
         setError(err.message);
       }
     },
-    [loadHeroData],
-  );*/
+    [],
+  );
   // Carrega todos os banners do banco
   const loadHeroData = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch("/api/hero");
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.error || "Erro ao carregar os heros");
+      const response = await fetchHeroData();
+      console.log("HOOk- Dados recebidos da API Fetch",response)
+      if (!Array.isArray(response)) {
+        throw new Error(response?.error || "Erro ao carregar os heros");
       }
-
-      setHeroData(Array.isArray(result) ? result : result.data || []);
+      setHeroData(response);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -86,6 +87,8 @@ export function useHero() {
     heroData,
     loading,
     error,
+
+    saveHero,
     loadHeroData,
     updateHero,
     setActiveHero,

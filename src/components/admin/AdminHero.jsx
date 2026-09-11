@@ -6,7 +6,7 @@ import UploadButton from "@/components/UploadButton";
 import UploadImagem from "../UploadImage";
 
 export default function AdminHero({ hero, onChange }) {
-  const { heroData, loadHeroData } = useHero();
+  const { heroData, loadHeroData, saveHero } = useHero();
   const { uploading, preview, error, loadUploadData } = useUpload();
 
   const [activeTab, setActiveTab] = useState("editar");
@@ -47,6 +47,7 @@ export default function AdminHero({ hero, onChange }) {
 
     // Mostra preview na tela
     setShowPreview(true);
+    saveHero(hero);
 
     // Aqui depois você chama a API para salvar
     // await saveHero(hero);

@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { fetchGaleriaData } from "@/services/GaleriaServices";
+import { fetchGaleriaData, addGaleria } from "@/services/GaleriaServices";
 
 export function useGaleria() {
   const [galeriaData, setGaleriaData] = useState([]);
@@ -21,12 +21,27 @@ export function useGaleria() {
     }
   }, []);
 
-  return { 
-    //dados da galeria
-        galeriaData,
-        loading,
-        error,
-    //função para carregar os dados da galeria
-        loadGaleriaData 
-    };
+  const saveGaleria = useCallback(
+    async (data) => {
+      try {
+        const response = await addGaleria(data);
+        if (response?.success) {
+          await loadGaleriaData();
+        }
+        return response;
+      } catch (err) {
+        setError(err.message);
+        return { success: false, error: err.message };
+      }
+    },
+    [loadGaleriaData],
+  );
+
+  return {
+    galeriaData,
+    loading,
+    error,
+    loadGaleriaData,
+    saveGaleria,
+  };
 }

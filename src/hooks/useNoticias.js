@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { fetchNoticiasData } from "@/services/NoticiasServices";
+import { fetchNoticiasData, addNoticia } from "@/services/NoticiasServices";
 
 export function useNoticias() {
   const [noticiasData, setNoticiasData] = useState([]);
@@ -21,5 +21,21 @@ export function useNoticias() {
     }
   }, []);
 
-  return { noticiasData, loading, error, loadNoticiasData };
+  const saveNoticia = useCallback(
+    async (data) => {
+      try {
+        const response = await addNoticia(data);
+        if (response?.success) {
+          await loadNoticiasData();
+        }
+        return response;
+      } catch (err) {
+        setError(err.message);
+        return { success: false, error: err.message };
+      }
+    },
+    [loadNoticiasData],
+  );
+
+  return { noticiasData, loading, error, loadNoticiasData, saveNoticia };
 }
