@@ -6,7 +6,6 @@ import Footer from "@/components/Footer";
 import AdminFotos from "@/components/admin/AdminFotos";
 import AdminHero from "@/components/admin/AdminHero";
 import AdminNoticias from "@/components/admin/AdminNoticias";
-import AdminProjetos from "@/components/admin/AdminProjetos";
 import AdminTabs from "@/components/admin/AdminTabs";
 
 const initialHero = {
@@ -126,7 +125,7 @@ export default function AdminDashboard() {
             onDelete={excluirNoticia}
           />
         )}
-        {abaAtiva === "projetos" && <AdminProjetos />}
+        
         {abaAtiva === "fotos" && <AdminFotos fotos={fotos} />}
       </main>
       <Footer />

@@ -3,7 +3,6 @@
 const tabs = [
   { id: "hero", label: "🎯 Hero" },
   { id: "noticias", label: "📰 Notícias" },
-  { id: "projetos", label: "📁 Projetos" },
   { id: "fotos", label: "🖼️ Fotos" },
 ];
 
