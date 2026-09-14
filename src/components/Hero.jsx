@@ -2,7 +2,6 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { projetos } from "@/data/projetos";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -18,19 +17,20 @@ export default function Hero() {
   }, [loadHeroData]);
   console.log("Dados do Hero:", heroData);
 
-  const slidesHero = (
+  const slidesHero =
     heroData.length > 0
-      ? heroData.map((hero) => ({
-          id: hero.id,
-          titulo: hero.title,
-          subtitulo: hero.subtitle,
-          descricao: hero.description_text,
-          imagem: hero.image_url,
-          botao: hero.button_text,
-          link: hero.button_link,
-        }))
-      : projetos.filter((projeto) => projeto.noHero === true)
-  ).filter((slide) => slide.imagem);
+      ? heroData
+          .map((hero) => ({
+            id: hero.id,
+            titulo: hero.title,
+            subtitulo: hero.subtitle,
+            descricao: hero.description_text,
+            imagem: hero.image_url,
+            botao: hero.button_text,
+            link: hero.button_link,
+          }))
+          .filter((slide) => slide.imagem)
+      : [];
 
   // Se não tiver nenhum slide, não mostra o carrossel
   if (!mounted || slidesHero.length === 0) {

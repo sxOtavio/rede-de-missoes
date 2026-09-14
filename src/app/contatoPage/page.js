@@ -1,6 +1,8 @@
 // app/contato/page.tsx
 "use client";
 
+import { sendEmail } from "@/app/actions/send-email";
+import { FaFacebook, FaInstagram, FaLinkedin, FaXTwitter, FaPhone } from 'react-icons/fa6';
 import { useState } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
@@ -22,14 +24,35 @@ export default function Contato() {
       ...formData,
       [e.target.id]: e.target.value
     });
+    
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Dados do formulário:", formData);
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const data = new FormData();
+  data.append("nome", formData.nome);
+  data.append("email", formData.email);
+  data.append("telefone", formData.telefone);
+  data.append("assunto", formData.assunto);
+  data.append("mensagem", formData.mensagem);
+
+  const resultado = await sendEmail(data);
+
+  if (resultado.success) {
     setEnviado(true);
     setTimeout(() => setEnviado(false), 5000);
-  };
+    setFormData({
+      nome: "",
+      email: "",
+      telefone: "",
+      assunto: "",
+      mensagem: ""
+    });
+  } else {
+    alert("Erro ao enviar. Tente novamente.");
+  }
+};
 
   return (
     <>
@@ -167,15 +190,6 @@ export default function Contato() {
                 </h2>
 
                 <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <span className="text-2xl">📍</span>
-                    <div>
-                      <h3 className="font-bold text-gray-700">Endereço</h3>
-                      <p className="text-gray-600 text-sm">
-                        Brasília - DF
-                      </p>
-                    </div>
-                  </div>
 
                   <div className="flex items-start gap-3">
                     <span className="text-2xl">📧</span>
@@ -190,8 +204,8 @@ export default function Contato() {
                   <div className="flex items-start gap-3">
                     <span className="text-2xl">📱</span>
                     <div>
-                      <h3 className="font-bold text-gray-700">WhatsApp</h3>
-                      <a href="https://wa.me/5561999999999" className="text-[#E07B39] hover:text-[#c96a2e] text-sm transition-colors">
+                      <h3 className="font-bold text-gray-700">Telefone</h3>
+                      <a href="tel:+5561999999999" className="text-[#E07B39] hover:text-[#c96a2e] text-sm transition-colors">
                         (61) 99999-9999
                       </a>
                     </div>
@@ -213,18 +227,10 @@ export default function Contato() {
                 <div>
                   <h3 className="font-bold text-gray-700 mb-3">Redes Sociais</h3>
                   <div className="flex gap-3">
-                    <a href="#" className="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-[#E07B39] transition-colors">
-                      <span>📘</span>
-                    </a>
-                    <a href="#" className="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-[#E07B39] transition-colors">
-                      <span>🐦</span>
-                    </a>
-                    <a href="#" className="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-[#E07B39] transition-colors">
-                      <span>📸</span>
-                    </a>
-                    <a href="#" className="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-[#E07B39] transition-colors">
-                      <span>💬</span>
-                    </a>
+                   <FaFacebook size={24} onClick={() => window.open('https://www.facebook.com', '_blank')} className="text-blue-600 hover:scale-140 transition-transform duration-300" />
+                   <FaInstagram size={24} onClick={() => window.open('https://www.instagram.com', '_blank')} className="text-pink-600 hover:scale-140 transition-transform duration-300" />
+                   <FaXTwitter size={24} onClick={() => window.open('https://www.twitter.com', '_blank')} className="text-black hover:scale-140 transition-transform duration-300" />
+                   <FaPhone size={24} onClick={() => window.open('tel:+551112345678', '_blank')} className="text-black hover:scale-140 transition-transform duration-300" />
                   </div>
                 </div>
 
@@ -237,15 +243,6 @@ export default function Contato() {
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Mapa (opcional) */}
-          <div className="mt-12 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-            <div className="h-64 bg-gray-200 flex items-center justify-center">
-              <p className="text-gray-500">
-                📍 Mapa - Brasília, DF
-              </p>
             </div>
           </div>
         </div>
