@@ -12,7 +12,7 @@ console.log("Dados do formulário recebidos:", { name, email, phone, title, mess
   try {
     await transporter.sendMail({
       from: process.env.SMTP_USER,
-      to: "ximenes.otavio@gmail.com",// Substitua pelo e-mail de destino do projeto
+      to: process.env.ADMIN_EMAIL,// Substitua pelo e-mail de destino do projeto
       subject: ` ${title} - Novo contato de ${name}:`,
       text: `Nome: ${name}\nE-mail: ${email}\nTelefone: ${phone}\nMensagem: ${message}`,
     });

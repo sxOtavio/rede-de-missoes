@@ -1,37 +1,34 @@
 // hooks/useHero.js
 import { useState, useCallback } from "react";
-import { fetchHeroData, addHero } from "@/services/HeroServices";
+import { fetchHeroData, addHero, deleteHero } from "@/services/HeroServices";
 
 export function useHero() {
   const [heroData, setHeroData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-
   //  ================Adciona banner ao banco===================
- 
-  const saveHero = useCallback(async (data) => {
-  console.log("HOOK- Função chamada useHero - saveHero", data);
 
-      try {
-        const response = await addHero(data);
-        if (response.success) {
-          await loadHeroData(); // Recarrega
-        }
-        return response;
-      } catch (err) {
-        setError(err.message);
+  const saveHero = useCallback(async (data) => {
+    console.log("HOOK- Função chamada useHero - saveHero", data);
+
+    try {
+      const response = await addHero(data);
+      if (response.success) {
+        await loadHeroData(); // Recarrega
       }
-    },
-    [],
-  );
+      return response;
+    } catch (err) {
+      setError(err.message);
+    }
+  }, []);
   // Carrega todos os banners do banco
   const loadHeroData = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
       const response = await fetchHeroData();
-      console.log("HOOk- Dados recebidos da API Fetch",response)
+      console.log("HOOk- Dados recebidos da API Fetch", response);
       if (!Array.isArray(response)) {
         throw new Error(response?.error || "Erro ao carregar os heros");
       }
@@ -47,9 +44,7 @@ export function useHero() {
   const updateHero = useCallback(
     async (id, dados) => {
       try {
-        const response = await fetch(`/api/hero/${id}`, {
-
-        });
+        const response = await fetch(`/api/hero/${id}`, {});
         const result = await response.json();
         if (result.success) {
           await loadHeroData(); // Recarrega
@@ -83,6 +78,22 @@ export function useHero() {
     [loadHeroData],
   );
 
+  const removeHero = useCallback(
+    async (id) => {
+      try {
+        const response = await deleteHero(id);
+        if (response?.success) {
+          await loadHeroData();
+        }
+        return response;
+      } catch (err) {
+        setError(err.message);
+        return { success: false, error: err.message };
+      }
+    },
+    [loadHeroData],
+  );
+
   return {
     heroData,
     loading,
@@ -92,5 +103,6 @@ export function useHero() {
     loadHeroData,
     updateHero,
     setActiveHero,
+    removeHero,
   };
 }

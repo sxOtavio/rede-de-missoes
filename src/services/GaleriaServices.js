@@ -34,3 +34,19 @@ export async function addGaleria(data) {
     throw error;
   }
 }
+
+export async function deleteGaleria(id) {
+  const response = await fetch("/api/galeria", {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ id }),
+  });
+
+  const result = await response.json();
+
+  if (!response.ok) {
+    throw new Error(result?.error || "Erro ao deletar imagem da galeria");
+  }
+
+  return result;
+}

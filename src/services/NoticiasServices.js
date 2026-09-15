@@ -34,3 +34,18 @@ export async function addNoticia(data) {
     throw error;
   }
 }
+
+export async function deleteNoticia(id) {
+  const response = await fetch("/api/noticias", {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ id }),
+  });
+  const result = await response.json();
+
+  if (!response.ok) {
+    throw new Error(result?.error || "Erro ao deletar notícia");
+  }
+
+  return result;
+}

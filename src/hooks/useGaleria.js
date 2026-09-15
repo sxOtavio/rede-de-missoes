@@ -1,5 +1,9 @@
 import { useCallback, useState } from "react";
-import { fetchGaleriaData, addGaleria } from "@/services/GaleriaServices";
+import {
+  fetchGaleriaData,
+  addGaleria,
+  deleteGaleria,
+} from "@/services/GaleriaServices";
 
 export function useGaleria() {
   const [galeriaData, setGaleriaData] = useState([]);
@@ -37,11 +41,28 @@ export function useGaleria() {
     [loadGaleriaData],
   );
 
+  const removeGaleria = useCallback(
+    async (id) => {
+      try {
+        const response = await deleteGaleria(id);
+        if (response?.success) {
+          await loadGaleriaData();
+        }
+        return response;
+      } catch (deleteError) {
+        setError(deleteError.message);
+        return { success: false, error: deleteError.message };
+      }
+    },
+    [loadGaleriaData],
+  );
+
   return {
     galeriaData,
     loading,
     error,
     loadGaleriaData,
     saveGaleria,
+    removeGaleria,
   };
 }

@@ -1,5 +1,18 @@
 import { NextResponse } from "next/server";
 import { pool } from "../../../lib/db";
+import { isAdminUser, verifyAuthToken } from "@/lib/auth";
+import { removePublicStorageFile } from "@/lib/storage";
+
+async function autorizarAdmin(request) {
+  const token = request.cookies.get("auth-token")?.value;
+  if (!token) return false;
+
+  try {
+    return isAdminUser(await verifyAuthToken(token));
+  } catch {
+    return false;
+  }
+}
 
 function gerarSlug(texto) {
   return (
@@ -105,6 +118,50 @@ export async function POST(request) {
     console.error("Erro no POST /api/noticias:", error);
     return NextResponse.json(
       { error: "Erro interno ao criar notícia" },
+      { status: 500 },
+    );
+  } finally {
+    client.release();
+  }
+}
+
+export async function DELETE(request) {
+  if (!(await autorizarAdmin(request))) {
+    return NextResponse.json({ error: "Não autorizado" }, { status: 401 });
+  }
+
+  const client = await pool.connect();
+
+  try {
+    const id = Number((await request.json()).id);
+    if (!Number.isInteger(id) || id <= 0) {
+      return NextResponse.json(
+        { error: "ID da notícia inválido" },
+        { status: 400 },
+      );
+    }
+
+    const result = await client.query(
+      "SELECT imagem_url FROM noticias WHERE id = $1 LIMIT 1",
+      [id],
+    );
+    const noticia = result.rows[0];
+
+    if (!noticia) {
+      return NextResponse.json(
+        { error: "Notícia não encontrada" },
+        { status: 404 },
+      );
+    }
+
+    await removePublicStorageFile(noticia.imagem_url);
+    await client.query("DELETE FROM noticias WHERE id = $1", [id]);
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error("Erro no DELETE /api/noticias:", error);
+    return NextResponse.json(
+      { error: error.message || "Erro interno ao deletar notícia" },
       { status: 500 },
     );
   } finally {

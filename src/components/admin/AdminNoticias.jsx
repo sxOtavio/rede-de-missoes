@@ -24,13 +24,20 @@ export default function AdminNoticias({
   onAdd,
   onDelete,
 }) {
-  const { noticiasData, loadNoticiasData, saveNoticia } = useNoticias();
+  const {
+    noticiasData,
+    loadNoticiasData,
+    saveNoticia,
+    removeNoticia,
+    error: noticiasError,
+  } = useNoticias();
   const { uploading, preview, error, loadUploadData } = useUpload();
 
   const [activeTab, setActiveTab] = useState("editar");
   const [searchTerm, setSearchTerm] = useState("");
   const [showPreview, setShowPreview] = useState(false);
   const [formData, setFormData] = useState(initialNoticia);
+  const [deletingId, setDeletingId] = useState(null);
 
   useEffect(() => {
     loadNoticiasData();
@@ -98,11 +105,21 @@ export default function AdminNoticias({
   };
 
   const handleDelete = async (id) => {
-    if (onDelete) {
-      onDelete(id);
+    const noticia = noticias.find((item) => item.id === id);
+    if (
+      !window.confirm(
+        `Tem certeza que deseja excluir a notícia "${noticia?.titulo || "Sem título"}"?`,
+      )
+    ) {
       return;
     }
-    await loadNoticiasData();
+
+    setDeletingId(id);
+    try {
+      await removeNoticia(id);
+    } finally {
+      setDeletingId(null);
+    }
   };
 
   return (
@@ -415,9 +432,10 @@ export default function AdminNoticias({
                       <button
                         type="button"
                         onClick={() => handleDelete(item.id)}
-                        className="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded-lg transition-colors text-xs font-medium"
+                        disabled={deletingId === item.id}
+                        className="bg-red-500 hover:bg-red-600 disabled:opacity-60 disabled:cursor-not-allowed text-white px-3 py-1.5 rounded-lg transition-colors text-xs font-medium"
                       >
-                        🗑️ Excluir
+                        {deletingId === item.id ? "Excluindo..." : "🗑️ Excluir"}
                       </button>
                     </div>
                   </div>
@@ -431,6 +449,11 @@ export default function AdminNoticias({
                       : "Nenhuma notícia cadastrada ainda."}
                   </p>
                 </div>
+              )}
+              {noticiasError && (
+                <p className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                  ❌ {noticiasError}
+                </p>
               )}
             </div>
           </div>

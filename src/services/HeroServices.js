@@ -1,8 +1,7 @@
 // Buscar todos os heros
 export async function fetchHeroData() {
   try {
-    const response = await fetch("/api/hero", {
-    });
+    const response = await fetch("/api/hero", {});
 
     if (!response.ok) {
       throw new Error("Erro ao buscar heros");
@@ -18,11 +17,11 @@ export async function fetchHeroData() {
 // Adiciona um novo hero
 export async function addHero(data) {
   const heroData = data;
-  console.log("SERVICE- Função chamada addHero", heroData)
+  console.log("SERVICE- Função chamada addHero", heroData);
   try {
     const response = await fetch("/api/hero", {
       method: "POST",
-      headers: {"content-type":"application/json"},
+      headers: { "content-type": "application/json" },
       body: JSON.stringify(heroData),
     });
 
@@ -36,4 +35,19 @@ export async function addHero(data) {
     console.error("Erro em addHero:", error);
     throw error;
   }
+}
+
+export async function deleteHero(id) {
+  const response = await fetch("/api/hero", {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ id }),
+  });
+  const result = await response.json();
+
+  if (!response.ok) {
+    throw new Error(result?.error || "Erro ao deletar banner");
+  }
+
+  return result;
 }

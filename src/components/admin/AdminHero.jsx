@@ -6,12 +6,19 @@ import UploadButton from "@/components/UploadButton";
 import UploadImagem from "../UploadImage";
 
 export default function AdminHero({ hero, onChange }) {
-  const { heroData, loadHeroData, saveHero } = useHero();
+  const {
+    heroData,
+    loadHeroData,
+    saveHero,
+    removeHero,
+    error: heroError,
+  } = useHero();
   const { uploading, preview, error, loadUploadData } = useUpload();
 
   const [activeTab, setActiveTab] = useState("editar");
   const [searchTerm, setSearchTerm] = useState("");
   const [showPreview, setShowPreview] = useState(false);
+  const [deletingId, setDeletingId] = useState(null);
 
   useEffect(() => {
     loadHeroData();
@@ -51,6 +58,23 @@ export default function AdminHero({ hero, onChange }) {
 
     // Aqui depois você chama a API para salvar
     // await saveHero(hero);
+  };
+
+  const handleDelete = async (item) => {
+    if (
+      !window.confirm(
+        `Tem certeza que deseja excluir o banner "${item.title}"?`,
+      )
+    ) {
+      return;
+    }
+
+    setDeletingId(item.id);
+    try {
+      await removeHero(item.id);
+    } finally {
+      setDeletingId(null);
+    }
   };
 
   return (
@@ -343,24 +367,11 @@ export default function AdminHero({ hero, onChange }) {
                       </button>
                       <button
                         type="button"
-                        onClick={() => {
-                          console.log(
-                            "🗑️ Excluindo banner:",
-                            item.id,
-                            "-",
-                            item.title,
-                          );
-                          if (
-                            confirm(
-                              `Tem certeza que deseja excluir o banner "${item.title}"?`,
-                            )
-                          ) {
-                            // deleteHero(item.id);
-                          }
-                        }}
-                        className="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded-lg transition-colors text-xs font-medium flex items-center gap-1"
+                        onClick={() => handleDelete(item)}
+                        disabled={deletingId === item.id}
+                        className="bg-red-500 hover:bg-red-600 disabled:opacity-60 disabled:cursor-not-allowed text-white px-3 py-1.5 rounded-lg transition-colors text-xs font-medium flex items-center gap-1"
                       >
-                        🗑️ Excluir
+                        {deletingId === item.id ? "Excluindo..." : "🗑️ Excluir"}
                       </button>
                     </div>
                   </div>
@@ -391,6 +402,11 @@ export default function AdminHero({ hero, onChange }) {
                   <strong>{heroData.filter((i) => i.destaque).length}</strong>
                 </span>
               </div>
+            )}
+            {heroError && (
+              <p className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                ❌ {heroError}
+              </p>
             )}
           </div>
         )}

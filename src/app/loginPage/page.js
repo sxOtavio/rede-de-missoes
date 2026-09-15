@@ -1,19 +1,19 @@
 // src/app/login/page.js
-'use client';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+"use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { useLogin } from "@/hooks/useLogin";
 
 export default function LoginPage() {
   const router = useRouter();
   const [formData, setFormData] = useState({
-    email: '',
-    senha: '',
+    email: "",
+    senha: "",
   });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const { loading, error, setError, submitLogin } = useLogin();
   const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
@@ -21,44 +21,24 @@ export default function LoginPage() {
       ...formData,
       [e.target.name]: e.target.value,
     });
-    setError('');
+    setError("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    setError('');
+    setError("");
 
-    try {
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+    const data = await submitLogin(formData);
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Erro ao fazer login');
-      }
-
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('user', JSON.stringify(data.user));
-
-      router.push('/dashboard');
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
+    if (data.success) {
+      router.push("/admPage");
     }
   };
 
   return (
     <div className="bg-[#f8f7f3] min-h-screen">
       <Header />
-      
+
       <div className="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md">
           <div className="bg-white rounded-2xl shadow-lg p-8 space-y-8 border border-gray-100">
@@ -90,7 +70,10 @@ export default function LoginPage() {
               <div className="space-y-4">
                 {/* Email */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-1">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-bold text-gray-700 mb-1"
+                  >
                     E-mail
                   </label>
                   <div className="relative">
@@ -113,7 +96,10 @@ export default function LoginPage() {
 
                 {/* Senha */}
                 <div>
-                  <label htmlFor="senha" className="block text-sm font-bold text-gray-700 mb-1">
+                  <label
+                    htmlFor="senha"
+                    className="block text-sm font-bold text-gray-700 mb-1"
+                  >
                     Senha
                   </label>
                   <div className="relative">
@@ -123,7 +109,7 @@ export default function LoginPage() {
                     <input
                       id="senha"
                       name="senha"
-                      type={showPassword ? 'text' : 'password'}
+                      type={showPassword ? "text" : "password"}
                       autoComplete="current-password"
                       required
                       value={formData.senha}
@@ -136,7 +122,7 @@ export default function LoginPage() {
                       onClick={() => setShowPassword(!showPassword)}
                       className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 transition-colors"
                     >
-                      {showPassword ? '🙈' : '👁️'}
+                      {showPassword ? "🙈" : "👁️"}
                     </button>
                   </div>
                 </div>
@@ -150,13 +136,19 @@ export default function LoginPage() {
                       type="checkbox"
                       className="h-4 w-4 text-[#E07B39] focus:ring-[#E07B39] border-gray-300 rounded"
                     />
-                    <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-600">
+                    <label
+                      htmlFor="remember-me"
+                      className="ml-2 block text-sm text-gray-600"
+                    >
                       Lembrar-me
                     </label>
                   </div>
 
                   <div className="text-sm">
-                    <Link href="/esqueci-senha" className="font-medium text-[#E07B39] hover:text-[#c96a2e] transition-colors">
+                    <Link
+                      href="/esqueci-senha"
+                      className="font-medium text-[#E07B39] hover:text-[#c96a2e] transition-colors"
+                    >
                       Esqueceu a senha?
                     </Link>
                   </div>
@@ -171,14 +163,29 @@ export default function LoginPage() {
               >
                 {loading ? (
                   <>
-                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                    <svg
+                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      />
                     </svg>
                     Entrando...
                   </>
                 ) : (
-                  'Entrar'
+                  "Entrar"
                 )}
               </button>
 
@@ -194,8 +201,11 @@ export default function LoginPage() {
 
               {/* Link Cadastro */}
               <p className="text-center text-sm text-gray-600 mt-4">
-                Não tem uma conta?{' '}
-                <Link href="/cadastro" className="font-bold text-[#E07B39] hover:text-[#c96a2e] transition-colors">
+                Não tem uma conta?{" "}
+                <Link
+                  href="/cadastroPage"
+                  className="font-bold text-[#E07B39] hover:text-[#c96a2e] transition-colors"
+                >
                   Cadastre-se
                 </Link>
               </p>
@@ -204,15 +214,20 @@ export default function LoginPage() {
 
           {/* Rodapé */}
           <p className="mt-8 text-center text-xs text-gray-400">
-            Ao continuar, você concorda com nossos{' '}
-            <Link href="/termos" className="text-[#E07B39] hover:underline">Termos de Uso</Link>{' '}
-            e{' '}
-            <Link href="/politica-de-privacidade" className="text-[#E07B39] hover:underline">Política de Privacidade</Link>
+            Ao continuar, você concorda com nossos{" "}
+            <Link href="/termos" className="text-[#E07B39] hover:underline">
+              Termos de Uso
+            </Link>{" "}
+            e{" "}
+            <Link
+              href="/politica-de-privacidade"
+              className="text-[#E07B39] hover:underline"
+            >
+              Política de Privacidade
+            </Link>
           </p>
         </div>
       </div>
-
-    
     </div>
   );
 }

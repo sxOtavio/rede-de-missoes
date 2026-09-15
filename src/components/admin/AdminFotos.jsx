@@ -11,13 +11,25 @@ const initialFoto = {
 };
 
 export default function AdminFotos() {
-  const { galeriaData, loadGaleriaData, saveGaleria } = useGaleria();
-  const { uploading, preview, error, loadUploadData } = useUpload();
+  const {
+    galeriaData,
+    loadGaleriaData,
+    saveGaleria,
+    removeGaleria,
+    error: galeriaError,
+  } = useGaleria();
+  const {
+    uploading,
+    preview,
+    error: uploadError,
+    loadUploadData,
+  } = useUpload();
 
   const [activeTab, setActiveTab] = useState("editar");
   const [searchTerm, setSearchTerm] = useState("");
   const [showPreview, setShowPreview] = useState(false);
   const [formData, setFormData] = useState(initialFoto);
+  const [deletingId, setDeletingId] = useState(null);
 
   useEffect(() => {
     loadGaleriaData();
@@ -61,6 +73,19 @@ export default function AdminFotos() {
       setShowPreview(true);
       setFormData(initialFoto);
       setActiveTab("lista");
+    }
+  };
+
+  const handleDelete = async (item) => {
+    if (!window.confirm(`Excluir a foto "${item.titulo || "Sem título"}"?`)) {
+      return;
+    }
+
+    setDeletingId(item.id);
+    try {
+      await removeGaleria(item.id);
+    } finally {
+      setDeletingId(null);
     }
   };
 
@@ -143,7 +168,9 @@ export default function AdminFotos() {
                   <p className="text-sm text-gray-500">⏳ Enviando imagem...</p>
                 )}
 
-                {error && <p className="text-sm text-red-500">❌ {error}</p>}
+                {uploadError && (
+                  <p className="text-sm text-red-500">❌ {uploadError}</p>
+                )}
 
                 {(preview || formData.imagem) && !uploading && (
                   // eslint-disable-next-line @next/next/no-img-element
@@ -277,10 +304,15 @@ export default function AdminFotos() {
                       </button>
                       <button
                         type="button"
-                        onClick={() => console.log("🗑️ Excluir foto:", item)}
-                        className="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded-lg transition-colors text-xs font-medium"
+                        onClick={(event) => {
+                          event.preventDefault();
+                          event.stopPropagation();
+                          handleDelete(item);
+                        }}
+                        disabled={deletingId === item.id}
+                        className="bg-red-500 hover:bg-red-600 disabled:opacity-60 disabled:cursor-not-allowed text-white px-3 py-1.5 rounded-lg transition-colors text-xs font-medium"
                       >
-                        🗑️ Excluir
+                        {deletingId === item.id ? "Excluindo..." : "🗑️ Excluir"}
                       </button>
                     </div>
                   </div>
@@ -294,6 +326,11 @@ export default function AdminFotos() {
                       : "Nenhuma foto cadastrada ainda."}
                   </p>
                 </div>
+              )}
+              {galeriaError && (
+                <p className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                  ❌ {galeriaError}
+                </p>
               )}
             </div>
           </div>

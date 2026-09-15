@@ -18,39 +18,8 @@ const initialHero = {
   button_link: "/noticiasPage",
 };
 
-const initialNoticias = [
-  {
-    id: 1,
-    titulo: "Projeto Purim completa 2 anos",
-    subtitulo: "Uma trajetória de amor e solidariedade",
-    conteudo:
-      "O Projeto Purim completa 2 anos de atuação, transformando vidas em Brasília...",
-    resumo: "Projeto Purim celebra 2 anos com mais de 140 vidas transformadas.",
-    imagem: "/images/noticia-purim.jpg",
-    autor: "Reinaldo Bastos",
-    destaque: true,
-    tags: ["Purim", "Aniversário", "Solidariedade"],
-    ativo: true,
-  },
-  {
-    id: 2,
-    titulo: "Nova turma de voluntários formada",
-    subtitulo: "Capacitação para o serviço comunitário",
-    conteudo: "No último sábado, formamos mais uma turma de voluntários...",
-    resumo: "20 novos voluntários capacitados para atuar nos projetos sociais.",
-    imagem: "/images/voluntarios.jpg",
-    autor: "Márcia Silva",
-    destaque: false,
-    tags: ["Voluntariado", "Capacitação"],
-    ativo: true,
-  },
-];
-
-const initialFotos = [
-  { id: 1, nome: "purim-1.jpg", url: "/images/purim-1.jpg" },
-  { id: 2, nome: "purim-2.jpg", url: "/images/purim-2.jpg" },
-  { id: 3, nome: "kids-1.jpg", url: "/images/kids-1.jpg" },
-];
+const initialNoticias =[];
+const initialFotos = [];
 
 export default function AdminDashboard() {
   const [abaAtiva, setAbaAtiva] = useState("hero");
@@ -105,12 +74,6 @@ export default function AdminDashboard() {
               Gerencie todo o conteúdo do site
             </p>
           </div>
-          <button
-            type="button"
-            className="bg-[#E07B39] hover:bg-[#c96a2e] text-white font-bold px-6 py-3 rounded-lg transition-colors shadow-md hover:shadow-lg"
-          >
-            💾 Salvar Tudo
-          </button>
         </div>
 
         <AdminTabs activeTab={abaAtiva} onChange={setAbaAtiva} />
