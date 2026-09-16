@@ -14,6 +14,22 @@ export async function fetchNoticiasData() {
   }
 }
 
+export async function fetchNoticiaById(id, options = {}) {
+  try {
+    const response = await fetch(`/api/noticias/${id}`, options);
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data?.error || "Erro ao buscar notícia");
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Erro em fetchNoticiaById:", error);
+    throw error;
+  }
+}
+
 export async function addNoticia(data) {
   try {
     const response = await fetch("/api/noticias", {

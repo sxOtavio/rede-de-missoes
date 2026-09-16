@@ -20,9 +20,7 @@ export default function MainContent() {
       titulo: noticia.titulo,
       descricao: noticia.resumo || noticia.conteudo,
       imagem: noticia.imagem_url || "/images/heroProjetosSociais.png",
-      link: noticia.slug
-        ? `/noticias/${noticia.slug}`
-        : `/noticias/${noticia.id}`,
+      link: `/noticias/${noticia.id}`,
     }));
 
   return (
