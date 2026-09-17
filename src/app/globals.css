@@ -40,4 +40,10 @@
   a {
     text-decoration: none;
   }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #000;
+    opacity: 1;
+  }
 }

@@ -91,7 +91,7 @@ export default function Contato() {
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div>
-                        <label htmlFor="nome" className="block text-sm font-bold text-gray-700 mb-2">
+                        <label htmlFor="nome" className="block text-sm font-bold text-black mb-2">
                           Nome completo *
                         </label>
                         <input
@@ -101,11 +101,11 @@ export default function Contato() {
                           placeholder="Seu nome"
                           value={formData.nome}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none transition"
+                          className="w-full px-4 py-3 border border-black rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none transition"
                         />
                       </div>
                       <div>
-                        <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-2">
+                        <label htmlFor="email" className="block text-sm font-bold text-black mb-2">
                           Email *
                         </label>
                         <input
@@ -115,14 +115,14 @@ export default function Contato() {
                           placeholder="seu@email.com"
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none transition"
+                          className="w-full px-4 py-3 border border-black rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none transition"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div>
-                        <label htmlFor="telefone" className="block text-sm font-bold text-gray-700 mb-2">
+                        <label htmlFor="telefone" className="block text-sm font-bold text-black mb-2">
                           Telefone
                         </label>
                         <input
@@ -131,11 +131,11 @@ export default function Contato() {
                           placeholder="(00) 00000-0000"
                           value={formData.telefone}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none transition"
+                          className="w-full px-4 py-3 border border-black rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none transition"
                         />
                       </div>
                       <div>
-                        <label htmlFor="assunto" className="block text-sm font-bold text-gray-700 mb-2">
+                        <label htmlFor="assunto" className="block text-sm font-bold text-black mb-2">
                           Assunto *
                         </label>
                         <select
@@ -143,7 +143,7 @@ export default function Contato() {
                           required
                           value={formData.assunto}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none transition bg-white"
+                          className="w-full px-4 py-3 border border-black rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none transition bg-white"
                         >
                           <option value="">Selecione um assunto</option>
                           <option value="duvida">Dúvida</option>
@@ -157,7 +157,7 @@ export default function Contato() {
                     </div>
 
                     <div>
-                      <label htmlFor="mensagem" className="block text-sm font-bold text-gray-700 mb-2">
+                      <label htmlFor="mensagem" className="block text-sm font-bold text-black mb-2">
                         Mensagem *
                       </label>
                       <textarea
@@ -167,7 +167,7 @@ export default function Contato() {
                         placeholder="Escreva sua mensagem..."
                         value={formData.mensagem}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none transition resize-none"
+                        className="w-full px-4 py-3 border border-black rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none transition resize-none"
                       />
                     </div>
 
@@ -194,7 +194,7 @@ export default function Contato() {
                   <div className="flex items-start gap-3">
                     <span className="text-2xl">📧</span>
                     <div>
-                      <h3 className="font-bold text-gray-700">Email</h3>
+                      <h3 className="font-bold text-black">Email</h3>
                       <a href="mailto:contato@redeadan.com.br" className="text-[#E07B39] hover:text-[#c96a2e] text-sm transition-colors">
                         contato@redeadan.com.br
                       </a>
@@ -204,7 +204,7 @@ export default function Contato() {
                   <div className="flex items-start gap-3">
                     <span className="text-2xl">📱</span>
                     <div>
-                      <h3 className="font-bold text-gray-700">Telefone</h3>
+                      <h3 className="font-bold text-black">Telefone</h3>
                       <a href="tel:+5561999999999" className="text-[#E07B39] hover:text-[#c96a2e] text-sm transition-colors">
                         (61) 99999-9999
                       </a>
@@ -214,7 +214,7 @@ export default function Contato() {
                   <div className="flex items-start gap-3">
                     <span className="text-2xl">⏰</span>
                     <div>
-                      <h3 className="font-bold text-gray-700">Horário de Atendimento</h3>
+                      <h3 className="font-bold text-black">Horário de Atendimento</h3>
                       <p className="text-gray-600 text-sm">
                         Segunda a Sexta: 8h - 18h
                       </p>
@@ -225,7 +225,7 @@ export default function Contato() {
                 <hr className="border-gray-200" />
 
                 <div>
-                  <h3 className="font-bold text-gray-700 mb-3">Redes Sociais</h3>
+                  <h3 className="font-bold text-black mb-3">Redes Sociais</h3>
                   <div className="flex gap-3">
                    <FaFacebook size={24} onClick={() => window.open('https://www.facebook.com', '_blank')} className="text-blue-600 hover:scale-140 transition-transform duration-300" />
                    <FaInstagram size={24} onClick={() => window.open('https://www.instagram.com', '_blank')} className="text-pink-600 hover:scale-140 transition-transform duration-300" />
@@ -235,7 +235,7 @@ export default function Contato() {
                 </div>
 
                 <div className="bg-[#fef0e8] rounded-xl p-4 text-center">
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm text-black">
                     🙏 <strong>Ore por nós</strong>
                   </p>
                   <p className="text-xs text-gray-500 mt-1">
