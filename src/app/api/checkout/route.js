@@ -1,10 +1,6 @@
 // app/api/checkout/route.js
 import { NextResponse } from "next/server";
 
-/**
- * Gera o token de acesso OAuth da Cielo
- * Usa ClientID + ClientSecret em Basic Auth
- */
 async function getCieloAccessToken() {
   const clientId = process.env.CIELO_CLIENT_ID;
   const clientSecret = process.env.CIELO_CLIENT_SECRET;
@@ -13,10 +9,8 @@ async function getCieloAccessToken() {
     throw new Error("Credenciais da Cielo não configuradas no .env");
   }
 
-  // Concatena e codifica em Base64 para o Basic Auth
   const credentials = Buffer.from(`${clientId}:${clientSecret}`).toString("base64");
 
-  // 🔥 ENDPOINT CORRETO para Link de Pagamento (conforme documentação oficial)
   const response = await fetch("https://cieloecommerce.cielo.com.br/api/public/v2/token", {
     method: "POST",
     headers: {
@@ -36,10 +30,13 @@ async function getCieloAccessToken() {
   return data.access_token;
 }
 
-/**
- * Cria um Link de Pagamento na Cielo
- * POST /api/checkout
- */
+//  Mapeamento das formas de pagamento para exibição
+const FORMAS_PAGAMENTO = {
+  pix: "PIX",
+  debito: "Cartão de Débito",
+  credito: "Cartão de Crédito",
+};
+
 export async function POST(request) {
   console.log("API - Requisição recebida no checkout");
 
@@ -55,32 +52,51 @@ export async function POST(request) {
     );
   }
 
-  const { valor, nome, email, cpf } = body;
+  const { valorBruto, valorLiquido, formaPagamento, nome, email, cpf } = body;
 
-  if (!valor || valor <= 0) {
+  // Validações
+  if (!valorBruto || valorBruto <= 0) {
+    console.error("Valor bruto inválido:", valorBruto);
     return NextResponse.json(
       { error: "Valor da doação inválido." },
       { status: 400 }
     );
   }
 
+  if (!valorLiquido || valorLiquido <= 0) {
+    console.error("Valor líquido inválido:", valorLiquido);
+    return NextResponse.json(
+      { error: "Valor líquido inválido." },
+      { status: 400 }
+    );
+  }
+
   try {
-    // 1. Obtém o token de acesso
     const accessToken = await getCieloAccessToken();
     console.log("API - Token obtido com sucesso");
 
-    // 2. Monta o payload do Link de Pagamento
+
+    const metodoPagamento = FORMAS_PAGAMENTO[formaPagamento] || "Pagamento";
+
+    const descricao = [
+      `Doação ao ITA - Projeto Purim`,
+      `Método: ${metodoPagamento}`,
+      `Valor líquido ao projeto: R$ ${valorLiquido.toFixed(2)}`,
+      `Importante: pague exatamente R$ ${valorBruto.toFixed(2)} no ${metodoPagamento} para que o valor chegue integralmente ao projeto.`,
+    ].join(" | ");
+
     const payload = {
       Type: "Service",
-      Name: "Doação Instituto Tempo de Alegria",
-      Description: "Doação para o Instituto Tempo de Alegria",
-      Price: Math.round(valor * 100),
+      Name: `Doação ITA - ${metodoPagamento}`,
+      Description: descricao,
+      Price: Math.round(valorBruto * 100),
       Shipping: {
         Type: "WithoutShipping",
       },
     };
 
-    // 3. Cria o Link de Pagamento (endpoint correto conforme documentação)
+    console.log("API - Payload enviado para Cielo:", payload);
+
     const response = await fetch(
       "https://cieloecommerce.cielo.com.br/api/public/v1/products/",
       {
@@ -120,9 +136,22 @@ export async function POST(request) {
 
     console.log("Link de pagamento criado:", data);
 
+    const checkoutUrl = data.shortUrl || data.url || data.ShortUrl || data.Url;
+
+    if (!checkoutUrl) {
+      console.error("URL não encontrada na resposta:", data);
+      return NextResponse.json(
+        { error: "Cielo não retornou a URL do link de pagamento" },
+        { status: 500 }
+      );
+    }
+
     return NextResponse.json({
-      checkoutUrl: data.ShortUrl || data.Url || data.url,
-      linkId: data.Id || data.id,
+      checkoutUrl: checkoutUrl,
+      linkId: data.id,
+      valorBruto: valorBruto,
+      valorLiquido: valorLiquido,
+      metodoPagamento: metodoPagamento,
     });
 
   } catch (error) {
