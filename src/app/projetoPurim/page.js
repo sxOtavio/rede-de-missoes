@@ -11,10 +11,9 @@ export default function Projetos() {
   return (
     <>
       <Header />
-      
+
       <main className="min-h-screen py-12 md:py-16 bg-[#f8f7f3]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          
           {/* Título */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-black text-gray-800">
@@ -53,50 +52,66 @@ export default function Projetos() {
                   Nossa História
                 </h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  O <strong className="text-[#E07B39]">Projeto Purim</strong> nasceu durante a pandemia, com a intenção de ajudar famílias em situação de vulnerabilidade. O que começou como uma ação emergencial se tornou um trabalho contínuo, que hoje é referência em acolhimento e solidariedade.
+                  O <strong className="text-[#E07B39]">Projeto Purim</strong>{" "}
+                  nasceu durante a pandemia, com a intenção de ajudar famílias
+                  em situação de vulnerabilidade. O que começou como uma ação
+                  emergencial se tornou um trabalho contínuo, que hoje é
+                  referência em acolhimento e solidariedade.
                 </p>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  O Purim atua fornecendo <strong>alimentos, roupas e ovos</strong> a famílias carentes, além de oferecer acolhimento e apoio espiritual. É um projeto que devolve dignidade e esperança a quem mais precisa.
+                  O Purim atua fornecendo{" "}
+                  <strong>alimentos, roupas e ovos</strong> a famílias carentes,
+                  além de oferecer acolhimento e apoio espiritual. É um projeto
+                  que devolve dignidade e esperança a quem mais precisa.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Hoje, o Projeto Purim é uma das principais frentes do <strong>Instituto Templo da Alegria (ITA)</strong>, e continua crescendo para alcançar cada vez mais pessoas.
+                  Hoje, o Projeto Purim é uma das principais frentes do{" "}
+                  <strong>Instituto Templo da Alegria (ITA)</strong>, e continua
+                  crescendo para alcançar cada vez mais pessoas.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* ============================================================ */}
-          {/* SEÇÃO 2: RESPONSÁVEIS */}
-          {/* ============================================================ */}
-          <div className="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-12">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-              Responsáveis
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-              <div className="p-4 bg-gray-50 rounded-xl">
-                <p className="text-[#E07B39] text-3xl mb-2">👤</p>
-                <p className="font-bold text-gray-800">Reinaldo Bastos</p>
-                <p className="text-sm text-gray-500">Coordenação Geral</p>
-              </div>
-              <div className="p-4 bg-gray-50 rounded-xl">
-                <p className="text-[#E07B39] text-3xl mb-2">👤</p>
-                <p className="font-bold text-gray-800">Breno</p>
-                <p className="text-sm text-gray-500">Líder</p>
-              </div>
-              <div className="p-4 bg-gray-50 rounded-xl">
-                <p className="text-[#E07B39] text-3xl mb-2">👤</p>
-                <p className="font-bold text-gray-800">Márcia</p>
-                <p className="text-sm text-gray-500">Líder</p>
-              </div>
-              <div className="p-4 bg-gray-50 rounded-xl">
-                <p className="text-[#E07B39] text-3xl mb-2">👤</p>
-                <p className="font-bold text-gray-800">Flávio</p>
-                <p className="text-sm text-gray-500">Líder</p>
-              </div>
-            </div>
-          </div>
+  {/* ============================================================ */}
+{/* SEÇÃO 2: RESPONSÁVEL */}
+{/* ============================================================ */}
+<div className="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-12">
+  <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+    Responsável
+  </h2>
 
-          <Galeria/>
+  <div className="overflow-x-auto">
+    <table className="w-full text-left border-collapse">
+      <thead>
+        <tr className="bg-[#fef0e8] text-gray-800">
+          <th className="px-4 py-3 rounded-tl-lg font-bold text-sm">Nome do responsável</th>
+          <th className="px-4 py-3 font-bold text-sm">Cargo</th>
+          <th className="px-4 py-3 rounded-tr-lg font-bold text-sm">Contato</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+          <td className="px-4 py-3 text-gray-800 font-medium">
+            Reinaldo Bastos
+          </td>
+          <td className="px-4 py-3 text-gray-600 text-sm">
+            Coordenação Geral
+          </td>
+          <td className="px-4 py-3">
+            <a
+              href="mailto:reinaldo.bastos@marinha.mil.br"
+              className="text-[#E07B39] hover:text-[#c96a2e] hover:underline transition-colors text-sm break-all"
+            >
+              📧 exemplo@gmail.com
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+          <Galeria />
 
           {/* ============================================================ */}
           {/* SEÇÃO 4: COMO AJUDAR */}
@@ -106,7 +121,8 @@ export default function Projetos() {
               Faça parte do Projeto Purim
             </h2>
             <p className="text-lg text-gray-300 mb-6 max-w-2xl mx-auto">
-              Sua contribuição ajuda a transformar vidas e levar esperança a quem mais precisa.
+              Sua contribuição ajuda a transformar vidas e levar esperança a
+              quem mais precisa.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -124,32 +140,47 @@ export default function Projetos() {
             </div>
           </div>
 
-          {/* ============================================================ */}
-          {/* SEÇÃO 5: OUTROS PROJETOS DO ITA */}
+  {/* ============================================================ */}
+          {/* SEÇÃO 6: OUTRAS ATIVIDADES */}
           {/* ============================================================ */}
           <div className="mt-16">
             <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
               Conheça também
             </h2>
             <p className="text-center text-gray-600 mb-8">
-              O Projeto Purim é um dos projetos do Instituto Templo da Alegria. Conheça também:
+             O Projeto Purim é um das atividades do Instituto Tempo da Alegria. Conheça também:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-lg transition-shadow">
+              <Link
+                href="/projetoPage"
+                className="bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-lg hover:scale-105 transition-all duration-300 border-t-4 border-[#E07B39]"
+              >
                 <span className="text-4xl block mb-3">📚</span>
                 <h3 className="font-bold text-gray-800">Atividades Kid's</h3>
-                <p className="text-sm text-gray-600 mt-2">Projeto "Charme" e aulas de reforço</p>
-              </div>
-              <div className="bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-lg transition-shadow">
+                <p className="text-sm text-gray-600 mt-2">
+                  Projeto "Charme" e aulas de reforço
+                </p>
+              </Link>
+              <Link
+                href="https://igrejaadan.com/"
+                className="bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-lg hover:scale-105 transition-all duration-300 border-t-4 border-[#E07B39]"
+              >
                 <span className="text-4xl block mb-3">🛠️</span>
-                <h3 className="font-bold text-gray-800">Oficinas para Adultos</h3>
-                <p className="text-sm text-gray-600 mt-2">Capacitação e acolhimento</p>
-              </div>
-              <div className="bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-lg transition-shadow">
-                <span className="text-4xl block mb-3">🌍</span>
-                <h3 className="font-bold text-gray-800">ITA África</h3>
-                <p className="text-sm text-gray-600 mt-2">Frente missionária internacional</p>
-              </div>
+                <h3 className="font-bold text-gray-800">Celulas para Adultos</h3>
+                <p className="text-sm text-gray-600 mt-2">
+                  Capacitação e acolhimento
+                </p>
+              </Link>
+   <Link
+                href="https://igrejaadan.com/"
+                className="bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-lg hover:scale-105 transition-all duration-300 border-t-4 border-[#E07B39]"
+              >
+                <span className="text-4xl block mb-3">⛪</span>
+                <h3 className="font-bold text-gray-800">Igreja ADAN</h3>
+                <p className="text-sm text-gray-600 mt-2">
+                  A comunidade de fé que sustenta o ITA
+                </p>
+              </Link>
             </div>
           </div>
         </div>

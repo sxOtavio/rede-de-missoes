@@ -109,7 +109,7 @@ export default function Doacoes() {
       return false;
     }
 
-    if (!doador.nome.trim()) {
+    /*if (!doador.nome.trim()) {
       setErro("Por favor, preencha seu nome completo.");
       return false;
     }
@@ -124,7 +124,7 @@ export default function Doacoes() {
       setErro("Por favor, preencha um CPF/CNPJ válido.");
       return false;
     }
-
+*/
     return true;
   };
 
@@ -366,97 +366,18 @@ export default function Doacoes() {
                 <p className="mb-2">
                   Para nos ajudar a identificar sua doação,
                   pedimos que o valor líquido termine sempre com{" "}
-                  <strong>,15 centavos</strong>.
+                  <strong>0,15 centavos</strong>.
                 </p>
                 <p className="mb-2">
-                  <strong>Por que o ,15?</strong>
+                  <strong>Por que o 0,15?</strong>
                   <br />
                   Esse pequeno detalhe permite que nossa equipe encontre sua
                   doação no extrato bancário de forma rápida, sem confundir com
-                  outras transações.
+                  outras doações.
                 </p>
               </div>
 
-              {/* Dados do Doador */}
-              <div className="space-y-4 mb-8">
-                <h3 className="text-lg font-bold text-gray-800">Seus dados</h3>
-
-                <div>
-                  <label
-                    htmlFor="nome"
-                    className="block text-sm font-bold text-gray-700 mb-2"
-                  >
-                    Nome completo *
-                  </label>
-                  <input
-                    type="text"
-                    id="nome"
-                    value={doador.nome}
-                    onChange={handleDoadorChange}
-                    placeholder="Seu nome"
-                    disabled={loading}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none disabled:bg-gray-100"
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-bold text-gray-700 mb-2"
-                    >
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      value={doador.email}
-                      onChange={handleDoadorChange}
-                      placeholder="seu@email.com"
-                      disabled={loading}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none disabled:bg-gray-100"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="cpf"
-                      className="block text-sm font-bold text-gray-700 mb-2"
-                    >
-                      CPF/CNPJ *
-                    </label>
-                    <input
-                      type="text"
-                      id="cpf"
-                      value={doador.cpf}
-                      onChange={handleDoadorChange}
-                      placeholder="000.000.000-00"
-                      maxLength="18"
-                      disabled={loading}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none disabled:bg-gray-100"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="telefone"
-                    className="block text-sm font-bold text-gray-700 mb-2"
-                  >
-                    Telefone (opcional)
-                  </label>
-                  <input
-                    type="tel"
-                    id="telefone"
-                    value={doador.telefone}
-                    onChange={handleDoadorChange}
-                    placeholder="(00) 00000-0000"
-                    maxLength="15"
-                    disabled={loading}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E07B39] focus:border-transparent outline-none disabled:bg-gray-100"
-                  />
-                </div>
-              </div>
-
+              
               {/* Botão Final */}
               <button
                 type="button"
@@ -476,33 +397,17 @@ export default function Doacoes() {
             </div>
           </div>
 
-          {/* Impacto */}
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-2xl shadow-md text-center hover:shadow-lg transition-shadow">
-              <p className="text-3xl font-black text-[#E07B39]">R$ 25,15</p>
-              <p className="text-sm text-gray-600 mt-2">
-                Alimenta uma criança por 1 mês
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-2xl shadow-md text-center hover:shadow-lg transition-shadow">
-              <p className="text-3xl font-black text-[#E07B39]">R$ 50,15</p>
-              <p className="text-sm text-gray-600 mt-2">
-                Mantém 1 aluno na escola
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-2xl shadow-md text-center hover:shadow-lg transition-shadow">
-              <p className="text-3xl font-black text-[#E07B39]">R$ 100,15</p>
-              <p className="text-sm text-gray-600 mt-2">
-                Apoia um missionário por mês
-              </p>
-            </div>
-          </div>
-
           {/* Chave PIX */}
           <div className="mt-12 bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-lg transition-shadow">
             <h3 className="text-lg font-bold text-gray-800 mb-2">
               📱 Doe via PIX
             </h3>
+            <div className="bg-[#fef0e8] border border-[#E07B39] rounded-lg p-4 mb-8 text-sm text-gray-700">
+                <p className="mb-2">
+                  Lembre-se de que o valor da sua doação deve terminar com <strong>0,15 centavos</strong>.
+                </p>
+             
+              </div>
             <p className="text-gray-600 mb-2">Chave PIX (CNPJ):</p>
             <div className="bg-[#f8f7f3] rounded-lg p-4 inline-block">
               <code className="text-sm font-mono text-[#E07B39] break-all">

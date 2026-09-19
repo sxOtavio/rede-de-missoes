@@ -131,8 +131,6 @@ export default function NoticiasPage() {
               </div>
             </>
           )}
-
-          <NoticiasNewsletter />
         </div>
       </main>
       <Footer />

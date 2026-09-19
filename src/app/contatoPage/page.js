@@ -2,7 +2,11 @@
 "use client";
 
 import { sendEmail } from "@/app/actions/send-email";
-import { FaFacebook, FaInstagram, FaLinkedin, FaXTwitter, FaPhone } from 'react-icons/fa6';
+import {
+  FaInstagram,
+  FaWhatsapp,
+  FaPhone,
+} from "react-icons/fa6";
 import { useState } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
@@ -14,7 +18,7 @@ export default function Contato() {
     email: "",
     telefone: "",
     assunto: "",
-    mensagem: ""
+    mensagem: "",
   });
 
   const [enviado, setEnviado] = useState(false);
@@ -22,45 +26,43 @@ export default function Contato() {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.id]: e.target.value
+      [e.target.id]: e.target.value,
     });
-    
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const data = new FormData();
-  data.append("nome", formData.nome);
-  data.append("email", formData.email);
-  data.append("telefone", formData.telefone);
-  data.append("assunto", formData.assunto);
-  data.append("mensagem", formData.mensagem);
+    const data = new FormData();
+    data.append("nome", formData.nome);
+    data.append("email", formData.email);
+    data.append("telefone", formData.telefone);
+    data.append("assunto", formData.assunto);
+    data.append("mensagem", formData.mensagem);
 
-  const resultado = await sendEmail(data);
+    const resultado = await sendEmail(data);
 
-  if (resultado.success) {
-    setEnviado(true);
-    setTimeout(() => setEnviado(false), 5000);
-    setFormData({
-      nome: "",
-      email: "",
-      telefone: "",
-      assunto: "",
-      mensagem: ""
-    });
-  } else {
-    alert("Erro ao enviar. Tente novamente.");
-  }
-};
+    if (resultado.success) {
+      setEnviado(true);
+      setTimeout(() => setEnviado(false), 5000);
+      setFormData({
+        nome: "",
+        email: "",
+        telefone: "",
+        assunto: "",
+        mensagem: "",
+      });
+    } else {
+      alert("Erro ao enviar. Tente novamente.");
+    }
+  };
 
   return (
     <>
       <Header />
-      
+
       <main className="min-h-screen py-12 md:py-16 bg-[#f8f7f3]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
           {/* Título */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-black text-gray-800">
@@ -74,7 +76,6 @@ export default function Contato() {
 
           {/* Grid: Formulário + Informações */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
             {/* Formulário */}
             <div className="lg:col-span-2">
               <div className="bg-white rounded-2xl shadow-md p-6 md:p-8 hover:shadow-lg transition-shadow">
@@ -84,14 +85,21 @@ export default function Contato() {
 
                 {enviado ? (
                   <div className="bg-green-50 border border-green-200 text-green-700 px-6 py-4 rounded-lg">
-                    <p className="font-bold">✅ Mensagem enviada com sucesso!</p>
-                    <p className="text-sm mt-1">Agradecemos seu contato. Responderemos em breve.</p>
+                    <p className="font-bold">
+                      ✅ Mensagem enviada com sucesso!
+                    </p>
+                    <p className="text-sm mt-1">
+                      Agradecemos seu contato. Responderemos em breve.
+                    </p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div>
-                        <label htmlFor="nome" className="block text-sm font-bold text-black mb-2">
+                        <label
+                          htmlFor="nome"
+                          className="block text-sm font-bold text-black mb-2"
+                        >
                           Nome completo *
                         </label>
                         <input
@@ -105,7 +113,10 @@ export default function Contato() {
                         />
                       </div>
                       <div>
-                        <label htmlFor="email" className="block text-sm font-bold text-black mb-2">
+                        <label
+                          htmlFor="email"
+                          className="block text-sm font-bold text-black mb-2"
+                        >
                           Email *
                         </label>
                         <input
@@ -122,7 +133,10 @@ export default function Contato() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div>
-                        <label htmlFor="telefone" className="block text-sm font-bold text-black mb-2">
+                        <label
+                          htmlFor="telefone"
+                          className="block text-sm font-bold text-black mb-2"
+                        >
                           Telefone
                         </label>
                         <input
@@ -135,7 +149,10 @@ export default function Contato() {
                         />
                       </div>
                       <div>
-                        <label htmlFor="assunto" className="block text-sm font-bold text-black mb-2">
+                        <label
+                          htmlFor="assunto"
+                          className="block text-sm font-bold text-black mb-2"
+                        >
                           Assunto *
                         </label>
                         <select
@@ -147,7 +164,9 @@ export default function Contato() {
                         >
                           <option value="">Selecione um assunto</option>
                           <option value="duvida">Dúvida</option>
-                          <option value="projeto">Informações sobre projetos</option>
+                          <option value="projeto">
+                            Informações sobre projetos
+                          </option>
                           <option value="doacao">Doações</option>
                           <option value="voluntario">Ser voluntário</option>
                           <option value="parceria">Parceria</option>
@@ -157,7 +176,10 @@ export default function Contato() {
                     </div>
 
                     <div>
-                      <label htmlFor="mensagem" className="block text-sm font-bold text-black mb-2">
+                      <label
+                        htmlFor="mensagem"
+                        className="block text-sm font-bold text-black mb-2"
+                      >
                         Mensagem *
                       </label>
                       <textarea
@@ -190,12 +212,14 @@ export default function Contato() {
                 </h2>
 
                 <div className="space-y-4">
-
                   <div className="flex items-start gap-3">
                     <span className="text-2xl">📧</span>
                     <div>
                       <h3 className="font-bold text-black">Email</h3>
-                      <a href="mailto:contato@redeadan.com.br" className="text-[#E07B39] hover:text-[#c96a2e] text-sm transition-colors">
+                      <a
+                        href="mailto:contato@redeadan.com.br"
+                        className="text-[#E07B39] hover:text-[#c96a2e] text-sm transition-colors"
+                      >
                         contato@redeadan.com.br
                       </a>
                     </div>
@@ -205,8 +229,11 @@ export default function Contato() {
                     <span className="text-2xl">📱</span>
                     <div>
                       <h3 className="font-bold text-black">Telefone</h3>
-                      <a href="tel:+5561999999999" className="text-[#E07B39] hover:text-[#c96a2e] text-sm transition-colors">
-                        (61) 99999-9999
+                      <a
+                        href="tel:+5561995866382"
+                        className="text-[#E07B39] hover:text-[#c96a2e] text-sm transition-colors"
+                      >
+                        (61) 99586-6382
                       </a>
                     </div>
                   </div>
@@ -214,9 +241,11 @@ export default function Contato() {
                   <div className="flex items-start gap-3">
                     <span className="text-2xl">⏰</span>
                     <div>
-                      <h3 className="font-bold text-black">Horário de Atendimento</h3>
+                      <h3 className="font-bold text-black">
+                        Horário de Atendimento
+                      </h3>
                       <p className="text-gray-600 text-sm">
-                        Segunda a Sexta: 8h - 18h
+                        Segunda a Sexta: 9h - 17h
                       </p>
                     </div>
                   </div>
@@ -227,10 +256,30 @@ export default function Contato() {
                 <div>
                   <h3 className="font-bold text-black mb-3">Redes Sociais</h3>
                   <div className="flex gap-3">
-                   <FaFacebook size={24} onClick={() => window.open('https://www.facebook.com', '_blank')} className="text-blue-600 hover:scale-140 transition-transform duration-300" />
-                   <FaInstagram size={24} onClick={() => window.open('https://www.instagram.com', '_blank')} className="text-pink-600 hover:scale-140 transition-transform duration-300" />
-                   <FaXTwitter size={24} onClick={() => window.open('https://www.twitter.com', '_blank')} className="text-black hover:scale-140 transition-transform duration-300" />
-                   <FaPhone size={24} onClick={() => window.open('tel:+551112345678', '_blank')} className="text-black hover:scale-140 transition-transform duration-300" />
+                    <FaInstagram
+                      size={24}
+                      onClick={() =>
+                        window.open(
+                          "https://www.instagram.com/institutotempodealegria/",
+                          "_blank",
+                        )
+                      }
+                      className="text-pink-600 hover:scale-140 transition-transform duration-300"
+                    />
+                    <FaWhatsapp
+                      size={24}
+                      onClick={() =>
+                        window.open("https://wa.me/5561995866382", "_blank")
+                      }
+                      className="text-green-500 hover:scale-140 transition-transform duration-300 cursor-pointer"
+                    />
+                    <FaPhone
+                      size={24}
+                      onClick={() =>
+                        window.open("tel:+5561995866382", "_blank")
+                      }
+                      className="text-black hover:scale-140 transition-transform duration-300"
+                    />
                   </div>
                 </div>
 
