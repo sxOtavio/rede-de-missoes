@@ -356,17 +356,17 @@ export default function CelulasPage() {
                 </p>
               </Link>
               <Link
-                href="/atividadesKids"
+                href="/projetos"
                 className="bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-lg hover:scale-105 transition-all duration-300 border-t-4 border-[#E07B39]"
               >
                 <span className="text-4xl block mb-3">🎨</span>
-                <h3 className="font-bold text-gray-800">Atividades Kid's</h3>
+                <h3 className="font-bold text-gray-800">Projetos</h3>
                 <p className="text-sm text-gray-600 mt-2">
-                  Momento Charme e aulas de reforço
+                  Momento Charme e Oficina para meninos
                 </p>
               </Link>
               <Link
-                href="/projetoPage"
+                href="/projetoPurim"
                 className="bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-lg hover:scale-105 transition-all duration-300 border-t-4 border-[#E07B39]"
               >
                 <span className="text-4xl block mb-3">🍞</span>

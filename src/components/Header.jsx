@@ -15,7 +15,7 @@ const menuItems = [
         nome: "ITA Estrutural",
         href: "/ITAEstrutural",
         submenu: [
-          { nome: "Projetos", href: "/atividadesKids" },
+          { nome: "Projetos", href: "/projetos" },
           { nome: "Células", href: "/celulas" },
           { nome: "Cursos", href: "/cursos" },
         ],

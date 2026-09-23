@@ -88,24 +88,24 @@ export default function ItaEstruturalPage() {
                 </p>
               </Link>
               <Link
-                href="/atividadesKids"
+                href="/projetos"
                 className="group p-6 bg-gray-50 rounded-xl hover:bg-[#fef0e8] hover:shadow-md transition-all duration-300 border-t-4 border-[#E07B39]"
               >
                 <p className="text-[#E07B39] text-4xl mb-3">📚</p>
                 <p className="font-bold text-gray-800 group-hover:text-[#E07B39] transition-colors">
-                  Atividades Kid's
+                  Projetos
                 </p>
                 <p className="text-sm text-gray-500 mt-1">
-                   Projeto "Charme" e reforço
+                   Projetos "Momento charme" e "Oficina para meninos"
                 </p>
               </Link>
                             <Link
-                href="/celulasAdultos"
+                href="/celulas"
                 className="group p-6 bg-gray-50 rounded-xl hover:bg-[#fef0e8] hover:shadow-md transition-all duration-300 border-t-4 border-[#E07B39]"
               >
                 <p className="text-[#E07B39] text-4xl mb-3">🛠️</p>
                 <p className="font-bold text-gray-800 group-hover:text-[#E07B39] transition-colors">
-                  Celulas para Adultos
+                  Celulas
                 </p>
                 <p className="text-sm text-gray-500 mt-1">
                   Capacitação e acolhimento

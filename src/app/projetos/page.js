@@ -6,7 +6,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-export default function AtividadesKidsPage() {
+export default function AtividadesPage() {
   return (
     <>
       <Header />
@@ -16,7 +16,7 @@ export default function AtividadesKidsPage() {
           {/* Título */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-black text-gray-800">
-              Atividades Kid's
+              Projetos
             </h1>
             <div className="w-24 h-1 bg-[#E07B39] mx-auto mt-4 rounded-full"></div>
             <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
