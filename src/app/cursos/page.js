@@ -1,4 +1,4 @@
-// app/celulasAdultos/page.js
+// app/cursos/page.js
 "use client";
 
 import Image from "next/image";
@@ -6,7 +6,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-export default function CelulasAdultosPage() {
+export default function CursosPage() {
   return (
     <>
       <Header />
@@ -17,57 +17,198 @@ export default function CelulasAdultosPage() {
           {/* Título */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-black text-gray-800">
-              Células para Adultos
+              Cursos
             </h1>
             <div className="w-24 h-1 bg-[#E07B39] mx-auto mt-4 rounded-full"></div>
             <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-              Comunhão, acolhimento e crescimento espiritual
+              Capacitação, crescimento e comunhão para todas as fases da vida
             </p>
           </div>
 
           {/* ============================================================ */}
-          {/* SEÇÃO 1: HISTÓRIA */}
+          {/* SEÇÃO 1: CURSO PARA ADULTOS */}
           {/* ============================================================ */}
           <div className="bg-white rounded-2xl shadow-md overflow-hidden mb-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="relative h-64 lg:h-auto min-h-[300px]">
+              <div className="relative h-64 lg:h-auto min-h-[300px] bg-gray-100">
                 <Image
-                  src="/images/celulas-adultos.jpeg"
-                  alt="Células para Adultos"
+                  src="/icones/curso.jpeg"
+                  alt="Curso para Adultos"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent lg:bg-none"></div>
                 <div className="absolute bottom-4 left-4 lg:hidden">
                   <span className="bg-[#E07B39] text-white text-xs font-bold px-3 py-1 rounded-full">
-                    Células para Adultos
+                    Cursos
                   </span>
                 </div>
               </div>
 
               <div className="p-6 md:p-8 flex flex-col justify-center">
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-                  Nossa História
+                  Cursos
                 </h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  As <strong className="text-[#E07B39]">Células para Adultos</strong> nasceram do desejo de criar um espaço onde as pessoas pudessem se reunir, compartilhar a vida e crescer juntas na fé. O que começou com pequenos encontros se tornou uma rede de apoio e comunhão.
+                  Os <strong className="text-[#E07B39]">Cursos</strong> nasceram do desejo de criar um espaço onde as pessoas pudessem se reunir, compartilhar a vida e crescer juntas na fé e no conhecimento.
                 </p>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Hoje, as células são um dos pilares do <strong>ITA Estrutural</strong>, oferecendo acolhimento, estudo da Palavra e oração em um ambiente familiar e acolhedor.
+                  Hoje, os cursos são alguns dos pilares do <strong>ITA Estrutural</strong>, oferecendo acolhimento, estudo da Palavra e capacitação em um ambiente familiar e acolhedor.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Cada célula é um lugar de pertencimento, onde ninguém caminha sozinho.
+                  Cada encontro é um lugar de pertencimento, onde ninguém caminha sozinho.
                 </p>
               </div>
             </div>
           </div>
 
           {/* ============================================================ */}
-          {/* SEÇÃO 2: O QUE ACONTECE NAS CÉLULAS */}
+          {/* SEÇÃO 2: HOMEM MÁXIMO */}
+          {/* ============================================================ */}
+          <div className="bg-white rounded-2xl shadow-md overflow-hidden mb-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="relative h-64 lg:h-auto min-h-[300px] bg-gray-100">
+                <Image
+                  src="/icones/homemMaximo.jpeg"
+                  alt="Homem Máximo"
+                  fill
+                  className="object-contain"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent lg:bg-none"></div>
+                <div className="absolute bottom-4 left-4 lg:hidden">
+                  <span className="bg-[#E07B39] text-white text-xs font-bold px-3 py-1 rounded-full">
+                    Homem Máximo
+                  </span>
+                </div>
+              </div>
+
+              <div className="p-6 md:p-8 flex flex-col justify-center">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+                  Homem Máximo
+                </h2>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  O <strong className="text-[#E07B39]">Homem Máximo</strong> é um curso de capacitação e desenvolvimento para homens que desejam crescer em todas as áreas da vida: espiritual, familiar, profissional e pessoal.
+                </p>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Através de encontros, palestras e dinâmicas, os participantes são desafiados a assumir seu papel de líderes em suas casas, igrejas e comunidades, vivendo com integridade, propósito e fé.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  É um espaço de crescimento, partilha e fortalecimento de vínculos entre homens que buscam ser a melhor versão de si mesmos.
+                </p>
+                <br/>
+                <p className="text-gray-700  leading-relaxed">
+                  <b>Todos os sábados às 10h</b>
+                </p>
+                <br/>
+              </div>
+            </div>
+
+            {/* Tabela de responsáveis */}
+            <div className="overflow-x-auto p-6">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="bg-[#fef0e8] text-gray-800">
+                    <th className="px-4 py-3 rounded-tl-lg font-bold text-sm">Nome do responsável</th>
+                    <th className="px-4 py-3 font-bold text-sm">Cargo</th>
+                    <th className="px-4 py-3 rounded-tr-lg font-bold text-sm">Contato</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                    <td className="px-4 py-3 text-gray-800 font-medium">Reinaldo Bastos</td>
+                    <td className="px-4 py-3 text-gray-600 text-sm">Coordenador Geral</td>
+                    <td className="px-4 py-3">
+                      <a href="mailto:reinaldo.bastos@marinha.mil.br" className="text-[#E07B39] hover:text-[#c96a2e] hover:underline transition-colors text-sm break-all">
+                        📧 exemplo@gmail.com
+                      </a>
+                    </td>
+                  </tr>
+                  <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                    <td className="px-4 py-3 text-gray-800 font-medium">Breno Santana</td>
+                    <td className="px-4 py-3 text-gray-600 text-sm">Líder</td>
+                    <td className="px-4 py-3">
+                      <a href="mailto:reinaldo.bastos@marinha.mil.br" className="text-[#E07B39] hover:text-[#c96a2e] hover:underline transition-colors text-sm break-all">
+                        📧 exemplo@gmail.com
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* ============================================================ */}
+          {/* SEÇÃO 3: MULHER ÚNICA */}
+          {/* ============================================================ */}
+          <div className="bg-white rounded-2xl shadow-md overflow-hidden mb-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="relative h-64 lg:h-auto min-h-[300px] bg-gray-100">
+                <Image
+                  src="/icones/mulherUnica.jpeg"
+                  alt="Mulher Única"
+                  fill
+                  className="object-contain"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent lg:bg-none"></div>
+                <div className="absolute bottom-4 left-4 lg:hidden">
+                  <span className="bg-[#E07B39] text-white text-xs font-bold px-3 py-1 rounded-full">
+                    Mulher Única
+                  </span>
+                </div>
+              </div>
+
+              <div className="p-6 md:p-8 flex flex-col justify-center">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+                  Mulher Única
+                </h2>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  O <strong className="text-[#E07B39]">Mulher Única</strong> é um curso dedicado ao desenvolvimento e empoderamento feminino, ajudando as mulheres a descobrirem seu valor, propósito e identidade.
+                </p>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Através de encontros, oficinas e momentos de partilha, as participantes são incentivadas a crescer na fé, na autoestima e nos relacionamentos, vivendo com plenitude e confiança.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  É um espaço de acolhimento, amizade e transformação, onde cada mulher é valorizada e encorajada a brilhar.
+                </p>
+                <br/>
+                <p className="text-gray-700  leading-relaxed">
+                  <b>Todos os sábados às 10h</b>
+                </p>
+                <br/>
+              </div>
+            </div>
+
+            {/* Tabela de responsáveis */}
+            <div className="overflow-x-auto p-6">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="bg-[#fef0e8] text-gray-800">
+                    <th className="px-4 py-3 rounded-tl-lg font-bold text-sm">Nome do responsável</th>
+                    <th className="px-4 py-3 font-bold text-sm">Cargo</th>
+                    <th className="px-4 py-3 rounded-tr-lg font-bold text-sm">Contato</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                    <td className="px-4 py-3 text-gray-800 font-medium">Thamires Fontenele</td>
+                    <td className="px-4 py-3 text-gray-600 text-sm">Líder</td>
+                    <td className="px-4 py-3">
+                      <a href="mailto:thamires@exemplo.com" className="text-[#E07B39] hover:text-[#c96a2e] hover:underline transition-colors text-sm break-all">
+                        📧 exemplo@gmail.com
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* ============================================================ */}
+          {/* SEÇÃO 4: O QUE ACONTECE NOS CURSOS */}
           {/* ============================================================ */}
           <div className="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-12">
             <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-              O Que Acontece nas Células
+              O Que Acontece nos Cursos
             </h2>
             <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
               Cada encontro é preparado com carinho para que você se sinta em casa. Veja o que você vai encontrar:
@@ -115,7 +256,7 @@ export default function CelulasAdultosPage() {
           </div>
 
           {/* ============================================================ */}
-          {/* SEÇÃO 3: BENEFÍCIOS */}
+          {/* SEÇÃO 5: BENEFÍCIOS */}
           {/* ============================================================ */}
           <div className="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-12">
             <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
@@ -161,14 +302,14 @@ export default function CelulasAdultosPage() {
           </div>
 
           {/* ============================================================ */}
-          {/* SEÇÃO 5: COMO PARTICIPAR */}
+          {/* SEÇÃO 6: COMO PARTICIPAR */}
           {/* ============================================================ */}
           <div className="bg-gray-800 rounded-2xl py-12 px-6 text-center text-white">
             <h2 className="text-3xl font-bold mb-4">
-              Faça parte de uma Célula
+              Faça parte de um Curso
             </h2>
             <p className="text-lg text-gray-300 mb-6 max-w-2xl mx-auto">
-              Encontre uma célula perto de você e comece a viver essa
+              Encontre o curso ideal para você e comece a viver essa
               experiência de comunhão e crescimento.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -176,7 +317,7 @@ export default function CelulasAdultosPage() {
                 href="/contatoPage"
                 className="inline-block px-8 py-3 bg-[#E07B39] hover:bg-[#c96a2e] text-white font-bold rounded-lg transition-colors shadow-lg hover:shadow-xl"
               >
-                Encontre uma Célula →
+                Inscreva-se →
               </Link>
               <Link
                 href="/doacoesPage"
@@ -188,14 +329,14 @@ export default function CelulasAdultosPage() {
           </div>
 
           {/* ============================================================ */}
-          {/* SEÇÃO 6: OUTRAS ATIVIDADES */}
+          {/* SEÇÃO 7: OUTRAS ATIVIDADES */}
           {/* ============================================================ */}
           <div className="mt-16">
             <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
               Conheça também
             </h2>
             <p className="text-center text-gray-600 mb-8">
-              As Células para Adultos são uma das frentes do ITA Estrutural.
+              Os Cursos são uma das frentes do ITA Estrutural.
               Conheça também:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

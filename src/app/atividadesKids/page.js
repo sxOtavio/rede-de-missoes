@@ -13,7 +13,6 @@ export default function AtividadesKidsPage() {
 
       <main className="min-h-screen py-12 md:py-16 bg-[#f8f7f3]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
           {/* Título */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-black text-gray-800">
@@ -32,7 +31,7 @@ export default function AtividadesKidsPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="relative h-64 lg:h-auto min-h-[300px]">
                 <Image
-                  src="/images/kids.jpeg"
+                  src="/images/nossaHistoria.jpeg"
                   alt="Atividades Kid's"
                   fill
                   className="object-cover"
@@ -50,13 +49,22 @@ export default function AtividadesKidsPage() {
                   Nossa História
                 </h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  As <strong className="text-[#E07B39]">Atividades Kid's</strong> nasceram do desejo de cuidar das crianças da comunidade, oferecendo um espaço seguro, acolhedor e cheio de amor. O que começou com algumas atividades recreativas se tornou um projeto completo de apoio educacional e social.
+                  As{" "}
+                  <strong className="text-[#E07B39]">Atividades Kid's</strong>{" "}
+                  nasceram do desejo de cuidar das crianças da comunidade,
+                  oferecendo um espaço seguro, acolhedor e cheio de amor. O que
+                  começou com algumas atividades recreativas se tornou um
+                  projeto completo de apoio educacional e social.
                 </p>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Hoje, atendemos crianças em situação de vulnerabilidade, oferecendo atividades que desenvolvem autoestima, aprendizado e valores cristãos. Cada criança é única e especial para nós.
+                  Hoje, atendemos crianças em situação de vulnerabilidade,
+                  oferecendo atividades que desenvolvem autoestima, aprendizado
+                  e valores cristãos. Cada criança é única e especial para nós.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  As Atividades Kid's são uma das frentes do <strong>Instituto Templo da Alegria (ITA)</strong>, e continuam crescendo para alcançar cada vez mais crianças.
+                  As Atividades Kid's são uma das frentes do{" "}
+                  <strong>Instituto Templo da Alegria (ITA)</strong>, e
+                  continuam crescendo para alcançar cada vez mais crianças.
                 </p>
               </div>
             </div>
@@ -77,13 +85,19 @@ export default function AtividadesKidsPage() {
                   </h2>
                 </div>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  O <strong className="text-[#E07B39]">Momento Charme</strong> é um projeto especial dedicado às meninas. O objetivo é ajudá-las a se sentirem mais bonitas, confiantes e valorizadas, trabalhando autoestima, autocuidado e identidade.
+                  O <strong className="text-[#E07B39]">Momento Charme</strong> é
+                  um projeto especial dedicado às meninas. O objetivo é
+                  ajudá-las a se sentirem mais bonitas, confiantes e
+                  valorizadas, trabalhando autoestima, autocuidado e identidade.
                 </p>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Durante os encontros, as meninas participam de atividades de beleza, maquiagem, penteados e conversas sobre autoestima, sempre com uma abordagem lúdica e acolhedora.
+                  Durante os encontros, as meninas participam de atividades de
+                  beleza, maquiagem, penteados e conversas sobre autoestima,
+                  sempre com uma abordagem lúdica e acolhedora.
                 </p>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Mais do que beleza, o Momento Charme ensina que cada menina é única, especial e merece se sentir bem consigo mesma.
+                  Mais do que beleza, o Momento Charme ensina que cada menina é
+                  única, especial e merece se sentir bem consigo mesma.
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2 text-gray-700">
@@ -99,65 +113,159 @@ export default function AtividadesKidsPage() {
                     <span>Conversas sobre identidade e valores</span>
                   </li>
                 </ul>
+                <br/>
+                <p className="text-gray-700  leading-relaxed">
+                  <b>Todos os sábados às 14h</b>
+                </p>
+                <br/>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left border-collapse">
+                    <thead>
+                      <tr className="bg-[#fef0e8] text-gray-800">
+                        <th className="px-4 py-3 rounded-tl-lg font-bold text-sm">
+                          Nome do responsável
+                        </th>
+                        <th className="px-4 py-3 font-bold text-sm">Cargo</th>
+                        <th className="px-4 py-3 rounded-tr-lg font-bold text-sm">
+                          Contato
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                        <td className="px-4 py-3 text-gray-800 font-medium">
+                          Daniela Machado 
+                        </td>
+                        <td className="px-4 py-3 text-gray-600 text-sm">
+                          Lider
+                        </td>
+                        <td className="px-4 py-3">
+                          <a
+                            href="mailto:reinaldo.bastos@marinha.mil.br"
+                            className="text-[#E07B39] hover:text-[#c96a2e] hover:underline transition-colors text-sm break-all"
+                          >
+                            📧 exemplo@gmail.com
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
 
-              <div className="order-1 lg:order-2 relative h-64 lg:h-96 rounded-2xl overflow-hidden shadow-md">
+              <div className="order-1 lg:order-2 relative h-64 lg:h-96 rounded-2xl overflow-hidden ">
                 <Image
-                  src="/images/momento-charme.jpeg"
+                  src="/icones/iconeCharme.png"
                   alt="Momento Charme"
                   fill
-                  className="object-cover"
+                  className="object-contain drop-shadow-md"
                 />
               </div>
             </div>
           </div>
 
           {/* ============================================================ */}
-          {/* SEÇÃO 3: AULAS DE REFORÇO */}
+          {/* SEÇÃO: OFICINA DE MENINOS */}
           {/* ============================================================ */}
           <div className="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div className="relative h-64 lg:h-96 rounded-2xl overflow-hidden shadow-md">
+              <div className="relative h-64 lg:h-96 rounded-2xl overflow-hidden p-4 flex items-center justify-center">
                 <Image
-                  src="/images/aulas-reforco.jpeg"
-                  alt="Aulas de Reforço"
+                  src="/icones/iconeOficina.png"
+                  alt="Projeto de oficina"
                   fill
-                  className="object-cover"
+                  className="object-contain drop-shadow-md"
                 />
               </div>
 
-              <div>
+              <div className="flex flex-col">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-[#fef0e8] rounded-full flex items-center justify-center">
-                    <span className="text-2xl">📚</span>
+                  <div className="w-12 h-12 bg-[#Fdf7eb] rounded-full flex items-center justify-center">
+                    <span className="text-2xl">🛠️</span>
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
-                    Aulas de Reforço
+                  <h2 className="text-2xl md:text-3xl font-bold text-[#111A2C]">
+                    Oficina de Meninos
                   </h2>
                 </div>
+
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  As <strong className="text-[#E07B39]">Aulas de Reforço</strong> são um apoio educacional essencial para as crianças da comunidade. Muitas enfrentam dificuldades na escola e não têm acesso a acompanhamento pedagógico.
+                  O{" "}
+                  <strong className="text-[#DBA31F]">
+                    Projeto Oficina de Meninos
+                  </strong>{" "}
+                  é uma iniciativa dedicada a orientar e capacitar os jovens da
+                  comunidade da Estrutural - DF.
                 </p>
+
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Aqui, as crianças recebem apoio em português, matemática e outras matérias, sempre com paciência, carinho e metodologias que respeitam o ritmo de cada uma.
+                  Através de atividades práticas, ensinamentos bíblicos e
+                  mentoria, criamos um ambiente seguro onde os rapazes recebem
+                  acompanhamento moral e espiritual, preparando-os para os
+                  desafios da vida diária.
                 </p>
+
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  O objetivo é fortalecer o aprendizado, melhorar o desempenho escolar e, acima de tudo, mostrar que cada criança é capaz.
+                  O nosso propósito vai muito além do ensino de habilidades
+                  práticas; o nosso grande objetivo é transformar vidas, guiados
+                  pela missão de estar sempre{" "}
+                  <strong className="text-gray-800">
+                    "Formando Homens de Valor"
+                  </strong>
+                  .
                 </p>
+
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2 text-gray-700">
-                    <span className="text-[#E07B39] text-lg">✦</span>
-                    <span>Apoio em português e matemática</span>
+                    <span className="text-[#DBA31F] text-lg">✦</span>
+                    <span>Formação de caráter e valores cristãos</span>
                   </li>
                   <li className="flex items-start gap-2 text-gray-700">
-                    <span className="text-[#E07B39] text-lg">✦</span>
-                    <span>Acompanhamento individualizado</span>
+                    <span className="text-[#DBA31F] text-lg">✦</span>
+                    <span>Atividades práticas e orientação para o futuro</span>
                   </li>
                   <li className="flex items-start gap-2 text-gray-700">
-                    <span className="text-[#E07B39] text-lg">✦</span>
-                    <span>Incentivo à leitura e ao estudo</span>
+                    <span className="text-[#DBA31F] text-lg">✦</span>
+                    <span>Acompanhamento espiritual e estudo da palavra</span>
                   </li>
                 </ul>
+                <br/>
+                <p className="text-gray-700  leading-relaxed">
+                  <b>Todos os sábados às 14h</b>
+                </p>
+                <br/>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left border-collapse">
+                    <thead>
+                      <tr className="bg-[#fef0e8] text-gray-800">
+                        <th className="px-4 py-3 rounded-tl-lg font-bold text-sm">
+                          Nome do responsável
+                        </th>
+                        <th className="px-4 py-3 font-bold text-sm">Cargo</th>
+                        <th className="px-4 py-3 rounded-tr-lg font-bold text-sm">
+                          Contato
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                        <td className="px-4 py-3 text-gray-800 font-medium">
+                          Flábio Machado 
+                        </td>
+                        <td className="px-4 py-3 text-gray-600 text-sm">
+                          Lider
+                        </td>
+                        <td className="px-4 py-3">
+                          <a
+                            href="mailto:reinaldo.bastos@marinha.mil.br"
+                            className="text-[#E07B39] hover:text-[#c96a2e] hover:underline transition-colors text-sm break-all"
+                          >
+                            📧 exemplo@gmail.com
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
@@ -197,8 +305,8 @@ export default function AtividadesKidsPage() {
               Conheça também
             </h2>
             <p className="text-center text-gray-600 mb-8">
-              As Atividades Kid's são uma das frentes do ITA Estrutural.
-              Conheça também:
+              As Atividades Kid's são uma das frentes do ITA Estrutural. Conheça
+              também:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <Link
@@ -217,9 +325,7 @@ export default function AtividadesKidsPage() {
               >
                 <span className="text-4xl block mb-3">🏠</span>
                 <h3 className="font-bold text-gray-800">ITA Estrutural</h3>
-                <p className="text-sm text-gray-600 mt-2">
-                  A sede em Brasília
-                </p>
+                <p className="text-sm text-gray-600 mt-2">A sede em Brasília</p>
               </Link>
               <Link
                 href="/itaAfricaPage"
@@ -233,7 +339,6 @@ export default function AtividadesKidsPage() {
               </Link>
             </div>
           </div>
-
         </div>
       </main>
 

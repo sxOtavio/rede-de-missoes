@@ -9,15 +9,17 @@ const menuItems = [
     nome: "Atividades",
     href: "#",
     submenu: [
+      { nome: "Projeto Purim", href: "/projetoPurim" },
+      
       {
         nome: "ITA Estrutural",
         href: "/ITAEstrutural",
         submenu: [
-          { nome: "Atividades Kid's", href: "/atividadesKids" },
-          { nome: "Células para Adultos", href: "/celulasAdultos" },
+          { nome: "Projetos", href: "/atividadesKids" },
+          { nome: "Células", href: "/celulas" },
+          { nome: "Cursos", href: "/cursos" },
         ],
       },
-      { nome: "Projeto Purim", href: "/projetoPurim" },
     ],
   },
   { nome: "Doações", href: "/doacoesPage" },
