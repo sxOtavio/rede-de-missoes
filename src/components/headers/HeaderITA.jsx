@@ -39,7 +39,7 @@ export default function Header() {
         {/* Logo */}
         <Link className="flex items-center gap-3" href="/">
           <img
-            src="/logoPurim.jpeg"
+            src="/ITA.png"
             alt="logo"
             className="h-14 w-auto sm:h-16 md:h-20 lg:h-24"
           />

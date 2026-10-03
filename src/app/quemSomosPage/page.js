@@ -78,7 +78,7 @@ export default function QuemSomos() {
                 <span className="text-[#E07B39] text-xl">✦</span>
                 <span>
                   <strong className="text-gray-800">ITA África</strong> — frente
-                  missionária internacional
+                  missionária internacional em Moçambique
                 </span>
               </li>
             </ul>
@@ -102,6 +102,29 @@ export default function QuemSomos() {
 
           {/* Grid de blocos */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+           
+          {/* Bloco: ITA Estrutural */}
+            <Link
+              href="/ITAEstrutural"
+              className="group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 border-t-4 border-[#E07B39]"
+            >
+              <div className="p-6">
+                <div className="w-14 h-14 bg-[#fef0e8] rounded-full flex items-center justify-center mb-4">
+                  <span className="text-3xl">🏠</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-[#E07B39] transition-colors">
+                  ITA Estrutural
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  A sede em Brasília que abriga os projetos sociais, oficinas
+                  para adultos e atividades para crianças.
+                </p>
+                <span className="inline-flex items-center text-[#E07B39] font-bold text-sm group-hover:gap-2 transition-all">
+                  Saiba mais →
+                </span>
+              </div>
+            </Link>
+
             {/* Bloco: ITA África */}
             <Link
               href="/ITAAfrica"
@@ -124,27 +147,7 @@ export default function QuemSomos() {
               </div>
             </Link>
 
-            {/* Bloco: ITA Estrutural */}
-            <Link
-              href="/ITAEstrutural"
-              className="group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 border-t-4 border-[#E07B39]"
-            >
-              <div className="p-6">
-                <div className="w-14 h-14 bg-[#fef0e8] rounded-full flex items-center justify-center mb-4">
-                  <span className="text-3xl">🏠</span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-[#E07B39] transition-colors">
-                  ITA Estrutural
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                  A sede em Brasília que abriga os projetos sociais, oficinas
-                  para adultos e atividades para crianças.
-                </p>
-                <span className="inline-flex items-center text-[#E07B39] font-bold text-sm group-hover:gap-2 transition-all">
-                  Saiba mais →
-                </span>
-              </div>
-            </Link>
+
 
             {/* Bloco: Igreja ADAN */}
             <Link

@@ -107,7 +107,7 @@ export default function CelulasPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="relative h-64 lg:h-auto min-h-[300px] bg-gray-100">
                 <Image
-                  src="/icones/celula.jpeg"
+                  src="/icones/kids1.jpeg"
                   alt="Célula Kids I"
                   fill
                   className="object-contain"
@@ -184,7 +184,7 @@ export default function CelulasPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="relative h-64 lg:h-auto min-h-[300px] bg-gray-100">
                 <Image
-                  src="/icones/celula.jpeg"
+                  src="/icones/kids2.jpeg"
                   alt="Célula Kids II"
                   fill
                   className="object-contain"

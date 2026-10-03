@@ -77,7 +77,7 @@ export default function CursosPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent lg:bg-none"></div>
                 <div className="absolute bottom-4 left-4 lg:hidden">
                   <span className="bg-[#E07B39] text-white text-xs font-bold px-3 py-1 rounded-full">
-                    Homem Máximo
+                    Homem ao Máximo
                   </span>
                 </div>
               </div>
@@ -347,7 +347,7 @@ export default function CursosPage() {
                 <span className="text-4xl block mb-3">📚</span>
                 <h3 className="font-bold text-gray-800">Projetos</h3>
                 <p className="text-sm text-gray-600 mt-2">
-                  Momento Charme e Oficina para meninos
+                  Espaço Charme de Meninas e Oficina para meninos
                 </p>
               </Link>
               <Link

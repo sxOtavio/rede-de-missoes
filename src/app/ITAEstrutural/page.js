@@ -3,7 +3,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import Header from "@/components/Header";
+import Header from "@/components/headers/HeaderITA";
 import Footer from "@/components/Footer";
 
 export default function ItaEstruturalPage() {
@@ -96,7 +96,7 @@ export default function ItaEstruturalPage() {
                   Projetos
                 </p>
                 <p className="text-sm text-gray-500 mt-1">
-                   Projetos "Momento charme" e "Oficina para meninos"
+                   Projetos "Espaço Charme de Meninas" e "Oficina para meninos"
                 </p>
               </Link>
                             <Link

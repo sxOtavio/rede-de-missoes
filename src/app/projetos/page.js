@@ -71,7 +71,7 @@ export default function AtividadesPage() {
           </div>
 
           {/* ============================================================ */}
-          {/* SEÇÃO 2: MOMENTO CHARME */}
+          {/* SEÇÃO 2: ESPAÇO CHARME DE MENINAS */}
           {/* ============================================================ */}
           <div className="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
@@ -81,11 +81,11 @@ export default function AtividadesPage() {
                     <span className="text-2xl">💄</span>
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
-                    Momento Charme
+                    Espaço Charme de Meninas
                   </h2>
                 </div>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  O <strong className="text-[#E07B39]">Momento Charme</strong> é
+                  O <strong className="text-[#E07B39]">Espaço Charme de Meninas</strong> é
                   um projeto especial dedicado às meninas. O objetivo é
                   ajudá-las a se sentirem mais bonitas, confiantes e
                   valorizadas, trabalhando autoestima, autocuidado e identidade.
